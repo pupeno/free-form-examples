@@ -2,3 +2,5 @@
 /target
 /*-init.clj
 /resources/public/js/compiled
+/checkouts/*
+!/checkouts/.keep
