@@ -10,27 +10,27 @@
   :source-paths ["src/clj"]
 
   :plugins [[lein-cljsbuild "1.1.1"]
-            [lein-figwheel "0.5.0-2"] ]
+            [lein-figwheel "0.5.0-2"]]
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
   :figwheel {:css-dirs ["resources/public/css"]}
 
-  :cljsbuild {:builds [{:id "dev"
+  :cljsbuild {:builds [{:id           "dev"
+                        :source-paths ["src/cljs" "checkouts/free-form/src/cljs"]
+
+                        :figwheel     {:on-jsload "free-form-examples.core/mount-root"}
+
+                        :compiler     {:main                 free-form-examples.core
+                                       :output-to            "resources/public/js/compiled/app.js"
+                                       :output-dir           "resources/public/js/compiled/out"
+                                       :asset-path           "js/compiled/out"
+                                       :source-map-timestamp true}}
+
+                       {:id           "min"
                         :source-paths ["src/cljs"]
-
-                        :figwheel {:on-jsload "free-form-examples.core/mount-root"}
-
-                        :compiler {:main free-form-examples.core
-                                   :output-to "resources/public/js/compiled/app.js"
-                                   :output-dir "resources/public/js/compiled/out"
-                                   :asset-path "js/compiled/out"
-                                   :source-map-timestamp true}}
-
-                       {:id "min"
-                        :source-paths ["src/cljs"]
-                        :compiler {:main free-form-examples.core
-                                   :output-to "resources/public/js/compiled/app.js"
-                                   :optimizations :advanced
-                                   :closure-defines {goog.DEBUG false}
-                                   :pretty-print false}}]})
+                        :compiler     {:main            free-form-examples.core
+                                       :output-to       "resources/public/js/compiled/app.js"
+                                       :optimizations   :advanced
+                                       :closure-defines {goog.DEBUG false}
+                                       :pretty-print    false}}]})
