@@ -18,7 +18,7 @@
                  [re-frame "0.6.0"]
                  [com.domkm/silk "0.1.1"]
                  [kibu/pushy "0.3.6"]
-                 [com.carouselapps/free-form "0.2.0-SNAPSHOT"]]
+                 [com.carouselapps/free-form "0.2.0"]]
 
   :min-lein-version "2.5.3"
 
