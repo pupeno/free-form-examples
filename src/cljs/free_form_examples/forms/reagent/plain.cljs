@@ -19,7 +19,7 @@
           [:input.form-control {:free-form/input {:key :text}
                                 :type            :text
                                 :id              :text
-                                :placeholder     "text placeholder"}]
+                                :placeholder     "placeholder"}]
           [:div.errors {:free-form/error-message {:key :text}} [:p.error]]]
          [:div.field {:free-form/error-class {:key :email :error "has-error"}}
           [:label {:for :email} "Email"]
@@ -32,8 +32,7 @@
           [:label {:for :password} "Password"]
           [:input.form-control {:free-form/input {:key :password}
                                 :type            :password
-                                :id              :password
-                                :placeholder     "password placeholder"}]
+                                :id              :password}]
           [:div.errors {:free-form/error-message {:key :password}} [:p.error]]]
          [:button "Button"]]]
        [layout/state @data]])))
