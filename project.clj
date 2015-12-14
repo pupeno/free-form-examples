@@ -27,7 +27,8 @@
   :plugins [[lein-cljsbuild "1.1.1"]
             [lein-figwheel "0.5.0-2"]
             [lein-ring "0.9.7"]
-            [environ/environ.lein "0.3.1"]]
+            [environ/environ.lein "0.3.1"]
+            [lein-heroku "0.5.3"]]
 
   :hooks [environ.leiningen.hooks]
 
@@ -49,6 +50,8 @@
                                             :source-map-timestamp true}}}}
 
   :uberjar-name "free-form-examples-standalone.jar"
+
+  :heroku {:app-name "free-form-examples"}
 
   :profiles {:production {:env {:production true}}
              :uberjar    {:omit-source true
