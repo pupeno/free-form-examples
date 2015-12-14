@@ -27,7 +27,7 @@
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
-  :figwheel {:css-dirs ["resources/public/css"]
+  :figwheel {:css-dirs     ["resources/public/css"]
              :ring-handler free-form-examples.core/app}
 
   :cljsbuild {:builds [{:id           "dev"
