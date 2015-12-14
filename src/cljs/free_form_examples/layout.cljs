@@ -47,7 +47,10 @@
             "Bootstrap" [:span.caret]]
            [:ul.dropdown-menu
             [:li [:a {:href (routing/url-for :reagent-bootstrap)} "On Reagent"]]
-            [:li [:a {:href (routing/url-for :re-frame-bootstrap)} "On Reframe"]]]]]]]])))
+            [:li [:a {:href (routing/url-for :re-frame-bootstrap)} "On Reframe"]]]]]
+         [:ul.nav.navbar-nav.navbar-right
+          [:li
+           [:a {:href "https://CarouselApps.com/free-form"} "Free Form " [:i.fa.fa-external-link]]]]]]])))
 
 (defn main-panel []
   (let [current-route (re-frame/subscribe [:current-route])]
