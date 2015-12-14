@@ -2,8 +2,8 @@
 /target
 /*-init.clj
 /resources/public/js/compiled
-#/checkouts/*
-#!/checkouts/.keep
+/checkouts/*
+!/checkouts/.keep
 .lein-repl-history
 
 # https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
