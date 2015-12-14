@@ -1,3 +1,0 @@
-[submodule "checkouts/free-form"]
-	path = checkouts/free-form
-	url = git@github.com:carouselapps/free-form.git
