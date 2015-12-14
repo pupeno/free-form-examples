@@ -49,7 +49,7 @@
             "Bootstrap 3" [:span.caret]]
            [:ul.dropdown-menu
             [:li [:a {:href (routing/url-for :reagent-bootstrap-3)} "On Reagent"]]
-            [:li [:a {:href (routing/url-for :re-frame-bootstrap-3)} "On Reframe"]]]]]
+            [:li [:a {:href (routing/url-for :re-frame-bootstrap-3)} "On re-frame"]]]]]
          [:ul.nav.navbar-nav.navbar-right
           [:li
            [:a {:href "https://CarouselApps.com/free-form"} "Free Form " [:i.fa.fa-external-link]]]]]]])))
