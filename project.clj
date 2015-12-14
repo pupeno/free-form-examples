@@ -1,4 +1,13 @@
 (defproject free-form-examples "0.1.0-SNAPSHOT"
+  :description "Examples of how to use the form library Free-form"
+
+  :url "https://carouselapps.com/free-form"
+
+  :license {:name "Eclipse Public License v1.0"
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :repositories {"carouselapps" "https://carouselapps-support-public.s3.amazonaws.com/clojars/"}
+
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.170"]
                  [compojure "1.4.0"]
@@ -10,15 +19,6 @@
                  [com.domkm/silk "0.1.1"]
                  [kibu/pushy "0.3.6"]
                  [com.carouselapps/free-form "0.2.0-SNAPSHOT"]]
-
-  :description "Examples of how to use the form library Free-form"
-
-  :url "https://carouselapps.com/free-form"
-
-  :license {:name "Eclipse Public License v1.0"
-            :url  "http://www.eclipse.org/legal/epl-v10.html"}
-
-  :repositories {"carouselapps" "https://carouselapps-support-public.s3.amazonaws.com/clojars/"}
 
   :min-lein-version "2.5.3"
 
