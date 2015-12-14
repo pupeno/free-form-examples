@@ -1,7 +1,7 @@
 ;;;; Copyright © 2015 Carousel Apps, Ltd. All rights reserved.
 
 (ns free-form-examples.forms.re-frame.bootstrap
-  (:require [reagent.ratom :as ratom]
+  (:require [reagent.ratom :as ratom :include-macros true]
             [re-frame.core :as re-frame]
             [free-form.re-frame :as free-form]
             [free-form-examples.layout :as layout]))
