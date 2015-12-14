@@ -4,7 +4,8 @@
   (:require [reagent.ratom :as ratom :include-macros true]
             [re-frame.core :as re-frame]
             [free-form.re-frame :as free-form]
-            [free-form-examples.layout :as layout]))
+            [free-form-examples.layout :as layout]
+            [free-form-examples.routing :as routing]))
 
 (re-frame/register-sub
   :re-frame-bootstrap
@@ -22,7 +23,13 @@
   (let [data (re-frame/subscribe [:re-frame-bootstrap])]
     (fn []
       [:div
+       [layout/source-code-button "re_frame/bootstrap.cljs"]
        [:h1 "Re-frame Bootstrap"]
+       [:p "You might also want to check out the "
+        [:a {:href (routing/url-for :re-frame-bootstrap-horizontal)} "Bootsrap horizontal"]
+        " and "
+        [:a {:href (routing/url-for :re-frame-bootstrap-inline)} "Bootsrap inline"]
+        " versions of this form."]
        [free-form/form {} {} :update-re-frame-bootstrap
         [:form {:noValidate        true
                 :free-form/options {:mode :bootstrap}}

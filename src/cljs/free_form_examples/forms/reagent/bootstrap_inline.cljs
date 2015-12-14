@@ -7,6 +7,7 @@
 (defmethod layout/pages :reagent-bootstrap-inline [_]
   (fn []
     [:div
+     [layout/source-code-button "reagent/bootstrap_inline.cljs"]
      [:h1 "Reagent Bootstrap Inline"]
      [free-form/form {} {} (fn [& args] (println args))
       [:form.form-inline {:noValidate        true

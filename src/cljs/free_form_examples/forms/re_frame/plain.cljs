@@ -22,6 +22,7 @@
   (let [data (re-frame/subscribe [:re-frame-plain])]
     (fn []
       [:div
+       [layout/source-code-button "re_frame/plain.cljs"]
        [:h1 "Re-frame"]
        [free-form/form {} {} :update-re-frame-plain
         [:form {:noValidate true}

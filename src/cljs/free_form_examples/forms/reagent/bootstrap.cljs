@@ -7,6 +7,7 @@
 (defmethod layout/pages :reagent-bootstrap [_]
   (fn []
     [:div
+     [layout/source-code-button "reagent/bootstrap.cljs"]
      [:h1 "Reagent Bootstrap"]
      [free-form/form {} {} (fn [& args] (println args))
       [:form {:noValidate        true

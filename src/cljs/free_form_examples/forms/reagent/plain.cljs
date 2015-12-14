@@ -7,6 +7,7 @@
 (defmethod layout/pages :reagent-plain [_]
   (fn []
     [:div
+     [layout/source-code-button "reagent/plain.cljs"]
      [:h1 "Reagent"]
      [free-form/form {} {} (fn [& args] (println args))
       [:form {:noValidate true}

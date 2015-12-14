@@ -22,6 +22,7 @@
   (let [data (re-frame/subscribe [:re-frame-bootstrap-inline])]
     (fn []
       [:div
+       [layout/source-code-button "re_frame/bootstrap_inline.cljs"]
        [:h1 "Re-frame Bootstrap Inline"]
        [free-form/form {} {} :update-re-frame-bootstrap-inline
         [:form.form-inline {:noValidate        true

@@ -7,6 +7,7 @@
 (defmethod layout/pages :reagent-bootstrap-horizontal [_]
   (fn []
     [:div
+     [layout/source-code-button "reagent/bootstrap_horizontal.cljs"]
      [:h1 "Reagent Bootstrap Horizontal"]
      [free-form/form {} {} (fn [& args] (println args))
       [:form.form-horizontal {:noValidate        true

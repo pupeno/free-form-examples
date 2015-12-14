@@ -23,6 +23,7 @@
   (let [data (re-frame/subscribe [:re-frame-bootstrap-horizontal])]
     (fn []
       [:div
+       [layout/source-code-button "re_frame/bootstrap_horizontal.cljs"]
        [:h1 "Re-frame Bootstrap Horizontal"]
        [free-form/form {} {} :update-re-frame-bootstrap-horizontal
         [:form.form-horizontal {:noValidate        true

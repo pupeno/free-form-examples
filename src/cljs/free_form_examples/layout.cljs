@@ -103,3 +103,11 @@
        [:h2 "Events"]
        [:p "Free-form, when in Re-frame mode, fires events. These are the events:"]
        [:pre (map #(with-out-str (pp/pprint %)) @event-log)]])))
+
+(defn source-code-button [file]
+  [:div.pull-right
+   [:a.btn.btn-default
+    {:href   (str "https://github.com/carouselapps/free-form-examples/blob/master/src/cljs/free_form_examples/forms/" file)
+     :target "_blank"}
+    [:span.fa.fa-github]
+    " View Source Code"]])
