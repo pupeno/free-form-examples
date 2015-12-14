@@ -6,7 +6,7 @@
                  [reagent "0.5.1"]
                  [re-frame "0.6.0"]
                  [com.domkm/silk "0.1.1"]
-                 [kibu/pushy "0.3.2"]
+                 [kibu/pushy "0.3.6"]
                  [com.carouselapps/free-form "0.2.0-SNAPSHOT"]]
 
   :description "Examples of how to use the form library Free-form"
