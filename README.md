@@ -1,7 +1,8 @@
 # Free-form-examples
 
 This is an set of examples for the [Free-form library](https://carouselapps.com/free-form), designed to help develop it,
-but also demonstrate how to use it and it's capabilities.
+but also demonstrate how to use it and it's capabilities. You can access a
+[live version at http://free-form-examples.carouselapps.com](http://free-form-examples.carouselapps.com).
 
 To run it on your own computer, check out this repository and then simply run:
 
