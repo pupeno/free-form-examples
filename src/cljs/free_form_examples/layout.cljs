@@ -55,7 +55,13 @@
       [:div
        [nav-bar]
        [:main.container
-        ^{:key @current-route} [pages @current-route]]])))
+        ^{:key @current-route} [pages @current-route]]
+       [:footer.footer
+        [:div.container
+         [:p.text-muted
+          "Copyright © 2015 "
+          [:a {:href "https://carouselapps.com"} "Carousel Apps"]
+          ", Ltd. All rights reserved."]]]])))
 
 (defmethod pages :home [_]
   (fn [_]
