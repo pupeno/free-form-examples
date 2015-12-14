@@ -9,6 +9,13 @@
                  [kibu/pushy "0.3.2"]
                  [com.carouselapps/free-form "0.2.0-SNAPSHOT"]]
 
+  :description "Examples of how to use the form library Free-form"
+
+  :url "https://carouselapps.com/free-form"
+
+  :license {:name "Eclipse Public License v1.0"
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
+
   :min-lein-version "2.5.3"
 
   :source-paths ["src/clj"]
