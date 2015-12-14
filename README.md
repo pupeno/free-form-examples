@@ -8,7 +8,7 @@ To run it on your own computer, check out this repository and then simply run:
 
 ```bash
 lein clean
-lein figwheel dev
+lein figwheel
 ```
 
 Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
