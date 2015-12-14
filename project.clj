@@ -18,6 +18,8 @@
   :license {:name "Eclipse Public License v1.0"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
 
+  :repositories {"carouselapps" "https://carouselapps-support-public.s3.amazonaws.com/clojars/"}
+
   :min-lein-version "2.5.3"
 
   :source-paths ["src/clj"]
