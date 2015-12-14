@@ -46,5 +46,5 @@
                             :label "Password"
                             :keys  [:password]}]
          [:button.btn.btn-primary {:type :submit} "Button"]]]
-       [layout/state @data]
+       [layout/state @data :re-frame-bootstrap]
        [layout/event-log]])))

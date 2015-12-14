@@ -46,5 +46,5 @@
           [:div.col-sm-offset-2.col-sm-5
            [:button.btn.btn-primary {:type :submit}
             "Button"]]]]]
-       [layout/state @data]
+       [layout/state @data :re-frame-bootstrap-horizontal]
        [layout/event-log]])))

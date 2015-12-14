@@ -49,5 +49,5 @@
                                 :placeholder     "placeholder@example.com"}]
           [:div.errors {:free-form/error-message {:key :password}} [:p.error]]]
          [:button "Button"]]]
-       [layout/state @data]
+       [layout/state @data :re-frame-plain]
        [layout/event-log]])))

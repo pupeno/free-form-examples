@@ -87,13 +87,14 @@
         Free-form."]
        [:pre (with-out-str (pp/pprint @db))]])))
 
-(defn state [data]
-  (fn [data]
+(defn state [data key]
+  (fn [data key]
     [:div
      [:h2 "State"]
-     [:p
-      "This form keeps the state in Re-frame's global state, in the " [:code ":re-frame-bootstrap-horizontal"]
-      " key. Just play with the form and see it update: "]
+     (when-not (nil? key)
+       [:p
+        "This form keeps the state in Re-frame's global state, in the " [:code (name key)]
+        " key. Just play with the form and see it update: "])
      [:pre (with-out-str (pp/pprint data))]]))
 
 (defn event-log []
