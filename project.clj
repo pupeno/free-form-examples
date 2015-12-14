@@ -3,6 +3,8 @@
                  [org.clojure/clojurescript "1.7.170"]
                  [compojure "1.4.0"]
                  [ring/ring-defaults "0.1.5"]
+                 [ring/ring-jetty-adapter "1.4.0"]
+                 [environ "1.0.1"]
                  [reagent "0.5.1"]
                  [re-frame "0.6.0"]
                  [com.domkm/silk "0.1.1"]
@@ -22,7 +24,11 @@
 
   :plugins [[lein-cljsbuild "1.1.1"]
             [lein-figwheel "0.5.0-2"]
-            [lein-ring "0.9.7"]]
+            [lein-ring "0.9.7"]
+            [environ/environ.lein "0.3.1"]]
+
+  :hooks [environ.leiningen.hooks]
+
   :ring {:handler free-form-examples.core/app}
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
@@ -30,21 +36,25 @@
   :figwheel {:css-dirs     ["resources/public/css"]
              :ring-handler free-form-examples.core/app}
 
-  :cljsbuild {:builds [{:id           "dev"
-                        :source-paths ["src/cljs"]          ; Add "checkouts/free-form/src/cljs" to make it easy to work on Free-frame and re-load code.
+  :cljsbuild {:builds {:app {:source-paths ["src/cljs"]     ; Add "checkouts/free-form/src/cljs" to make it easy to work on Free-frame and re-load code.
 
-                        :figwheel     {:on-jsload "free-form-examples.core/mount-root"}
+                             :figwheel     {:on-jsload "free-form-examples.core/mount-root"}
 
-                        :compiler     {:main                 free-form-examples.core
-                                       :output-to            "resources/public/js/compiled/app.js"
-                                       :output-dir           "resources/public/js/compiled/out"
-                                       :asset-path           "/js/compiled/out"
-                                       :source-map-timestamp true}}
+                             :compiler     {:main                 free-form-examples.core
+                                            :output-to            "resources/public/js/compiled/app.js"
+                                            :output-dir           "resources/public/js/compiled/out"
+                                            :asset-path           "/js/compiled/out"
+                                            :source-map-timestamp true}}}}
 
-                       {:id           "min"
-                        :source-paths ["src/cljs"]
-                        :compiler     {:main            free-form-examples.core
-                                       :output-to       "resources/public/js/compiled/app.js"
-                                       :optimizations   :advanced
-                                       :closure-defines {goog.DEBUG false}
-                                       :pretty-print    false}}]})
+  :uberjar-name "free-form-examples-standalone.jar"
+
+  :profiles {:production {:env {:production true}}
+             :uberjar    {:omit-source true
+                          :aot         :all
+                          :env         {:production true}
+                          :hooks       [leiningen.cljsbuild]
+                          :prep-tasks  ["compile" ["cljsbuild" "once"]]
+                          :cljsbuild   {:jar    true
+                                        :builds {:app {:compiler {:optimizations   :advanced
+                                                                  :closure-defines {goog.DEBUG false}
+                                                                  :pretty-print    false}}}}}})
