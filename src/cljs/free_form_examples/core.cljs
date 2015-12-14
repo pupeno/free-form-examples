@@ -8,13 +8,13 @@
             [free-form-examples.routing :as routing]
             free-form-examples.db
             free-form-examples.forms.reagent.plain
-            free-form-examples.forms.reagent.bootstrap
-            free-form-examples.forms.reagent.bootstrap-horizontal
-            free-form-examples.forms.reagent.bootstrap-inline
+            free-form-examples.forms.reagent.bootstrap-3
+            free-form-examples.forms.reagent.bootstrap-3-horizontal
+            free-form-examples.forms.reagent.bootstrap-3-inline
             free-form-examples.forms.re-frame.plain
-            free-form-examples.forms.re-frame.bootstrap
-            free-form-examples.forms.re-frame.bootstrap-horizontal
-            free-form-examples.forms.re-frame.bootstrap-inline))
+            free-form-examples.forms.re-frame.bootstrap-3
+            free-form-examples.forms.re-frame.bootstrap-3-horizontal
+            free-form-examples.forms.re-frame.bootstrap-3-inline))
 
 (when config/debug?
   (println "dev mode"))

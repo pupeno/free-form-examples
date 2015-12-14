@@ -32,24 +32,24 @@
             "Reagent" [:span.caret]]
            [:ul.dropdown-menu
             [:li [:a {:href (routing/url-for :reagent-plain)} "Plain"]]
-            [:li [:a {:href (routing/url-for :reagent-bootstrap)} "Bootstrap"]]
-            [:li [:a {:href (routing/url-for :reagent-bootstrap-horizontal)} "Bootstrap Horizontal"]]
-            [:li [:a {:href (routing/url-for :reagent-bootstrap-inline)} "Bootstrap Inline"]]]]
+            [:li [:a {:href (routing/url-for :reagent-bootstrap-3)} "Bootstrap 3"]]
+            [:li [:a {:href (routing/url-for :reagent-bootstrap-3-horizontal)} "Bootstrap 3 Horizontal"]]
+            [:li [:a {:href (routing/url-for :reagent-bootstrap-3-inline)} "Bootstrap 3 Inline"]]]]
           [:li.dropdown
            [:a.dropdown-toggle {:href "#" :data-toggle "dropdown" :role "button" :aria-haspopup true :aria-expanded false}
             "Re-frame" [:span.caret]]
            [:ul.dropdown-menu
             [:li [:a {:href (routing/url-for :re-frame-plain)} "Plain"]]
-            [:li [:a {:href (routing/url-for :re-frame-bootstrap)} "Bootstrap"]]
-            [:li [:a {:href (routing/url-for :re-frame-bootstrap-horizontal)} "Bootstrap Horizontal"]]
-            [:li [:a {:href (routing/url-for :re-frame-bootstrap-inline)} "Bootstrap Inline"]]
+            [:li [:a {:href (routing/url-for :re-frame-bootstrap-3)} "Bootstrap 3"]]
+            [:li [:a {:href (routing/url-for :re-frame-bootstrap-3-horizontal)} "Bootstrap 3 Horizontal"]]
+            [:li [:a {:href (routing/url-for :re-frame-bootstrap-3-inline)} "Bootstrap 3 Inline"]]
             [:li [:a {:href (routing/url-for :re-frame-state)} "State"]]]]
           [:li.dropdown
            [:a.dropdown-toggle {:href "#" :data-toggle "dropdown" :role "button" :aria-haspopup true :aria-expanded false}
-            "Bootstrap" [:span.caret]]
+            "Bootstrap 3" [:span.caret]]
            [:ul.dropdown-menu
-            [:li [:a {:href (routing/url-for :reagent-bootstrap)} "On Reagent"]]
-            [:li [:a {:href (routing/url-for :re-frame-bootstrap)} "On Reframe"]]]]]
+            [:li [:a {:href (routing/url-for :reagent-bootstrap-3)} "On Reagent"]]
+            [:li [:a {:href (routing/url-for :re-frame-bootstrap-3)} "On Reframe"]]]]]
          [:ul.nav.navbar-nav.navbar-right
           [:li
            [:a {:href "https://CarouselApps.com/free-form"} "Free Form " [:i.fa.fa-external-link]]]]]]])))

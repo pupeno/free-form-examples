@@ -7,9 +7,9 @@
 (def default-db
   {:current-route                 nil
    :re-frame-plain                {}
-   :re-frame-bootstrap            {}
-   :re-frame-bootstrap-horizontal {}
-   :re-frame-bootstrap-inline     {}
+   :re-frame-bootstrap-3            {}
+   :re-frame-bootstrap-3-horizontal {}
+   :re-frame-bootstrap-3-inline     {}
    :event-log                     ()})
 
 (re-frame/register-handler
