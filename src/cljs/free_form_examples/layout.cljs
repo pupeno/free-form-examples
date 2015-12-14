@@ -42,7 +42,8 @@
             [:li [:a {:href (routing/url-for :re-frame-plain)} "Plain"]]
             [:li [:a {:href (routing/url-for :re-frame-bootstrap)} "Bootstrap"]]
             [:li [:a {:href (routing/url-for :re-frame-bootstrap-horizontal)} "Bootstrap Horizontal"]]
-            [:li [:a {:href (routing/url-for :re-frame-bootstrap-inline)} "Bootstrap Inline"]]]]
+            [:li [:a {:href (routing/url-for :re-frame-bootstrap-inline)} "Bootstrap Inline"]]
+            [:li [:a {:href (routing/url-for :re-frame-state)} "State"]]]]
           [:li.dropdown
            [:a.dropdown-toggle {:href "#" :data-toggle "dropdown" :role "button" :aria-haspopup true :aria-expanded false}
             "Bootstrap" [:span.caret]]
@@ -75,6 +76,16 @@
       [:a {:href "https://CarouselApps.com/free-form"} "Free-form"]
       " library. A library to build forms in ClojureScript that's super flexible giving you the freedom to shape
       the form anyway you want at the same time as helping you play nice with both Reagent and Re-Frame."]]))
+
+(defmethod pages :re-frame-state [_]
+  (let [db (re-frame/subscribe [:db])]
+    (fn [_]
+      [:div
+       [:h1 "All of Re-frame state"]
+       [:p
+        "This is all the current Re-frame state, so you can inspect it. It can help understand the impact of
+        Free-form."]
+       [:pre (with-out-str (pp/pprint @db))]])))
 
 (defn state [data]
   (fn [data]

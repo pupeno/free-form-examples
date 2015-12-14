@@ -15,7 +15,8 @@
                           [:re-frame-plain [["re-frame" "plain"]]]
                           [:re-frame-bootstrap [["re-frame" "bootstrap"]]]
                           [:re-frame-bootstrap-horizontal [["re-frame" "bootstrap" "horizontal"]]]
-                          [:re-frame-bootstrap-inline [["re-frame" "bootstrap" "inline"]]]]))
+                          [:re-frame-bootstrap-inline [["re-frame" "bootstrap" "inline"]]]
+                          [:re-frame-state [["re-frame" "state"]]]]))
 
 (defn sanitize-silk-keywords [matched-route]
   (rename-keys matched-route {:domkm.silk/name    :name

@@ -18,6 +18,11 @@
     default-db))
 
 (re-frame/register-sub
+  :db
+  (fn [db]
+    (ratom/reaction @db)))
+
+(re-frame/register-sub
   :event-log
   (fn [db]
     (ratom/reaction (:event-log @db))))
