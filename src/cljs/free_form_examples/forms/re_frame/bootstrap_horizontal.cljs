@@ -1,10 +1,11 @@
 ;;;; Copyright © 2015 Carousel Apps, Ltd. All rights reserved.
 
 (ns free-form-examples.forms.re-frame.bootstrap-horizontal
-  (:require [reagent.ratom :as ratom :include-macros true]
-            [re-frame.core :as re-frame]
-            [free-form.re-frame :as free-form]
-            [free-form-examples.layout :as layout]))
+  (:require
+    [reagent.ratom :as ratom :include-macros true]
+    [re-frame.core :as re-frame]
+    [free-form.re-frame :as free-form]
+    [free-form-examples.layout :as layout]))
 
 (re-frame/register-sub
   :re-frame-bootstrap-horizontal
@@ -13,9 +14,10 @@
 
 (re-frame/register-handler
   :update-re-frame-bootstrap-horizontal
-  (fn [db args]
-    (println args)
-    db))
+  (fn [db [_ keys value :as event]]
+    (-> db
+        (assoc-in (cons :re-frame-bootstrap-horizontal keys) value)
+        (update :event-log #(conj % event)))))
 
 (defmethod layout/pages :re-frame-bootstrap-horizontal [_]
   (let [data (re-frame/subscribe [:re-frame-bootstrap-horizontal])]
@@ -42,4 +44,6 @@
          [:div.form-group
           [:div.col-sm-offset-2.col-sm-5
            [:button.btn.btn-primary {:type :submit}
-            "Button"]]]]]])))
+            "Button"]]]]]
+       [layout/state @data]
+       [layout/event-log]])))

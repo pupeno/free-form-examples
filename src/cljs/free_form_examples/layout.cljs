@@ -1,7 +1,8 @@
 ;;;; Copyright © 2015 Carousel Apps, Ltd. All rights reserved.
 
 (ns free-form-examples.layout
-  (:require [re-frame.core :as re-frame]
+  (:require [cljs.pprint :as pp]
+            [re-frame.core :as re-frame]
             [free-form-examples.routing :as routing]))
 
 (defmulti pages :name)
@@ -74,3 +75,20 @@
       [:a {:href "https://CarouselApps.com/free-form"} "Free-form"]
       " library. A library to build forms in ClojureScript that's super flexible giving you the freedom to shape
       the form anyway you want at the same time as helping you play nice with both Reagent and Re-Frame."]]))
+
+(defn state [data]
+  (fn [data]
+    [:div
+     [:h2 "State"]
+     [:p
+      "This form keeps the state in Re-frame's global state, in the " [:code ":re-frame-bootstrap-horizontal"]
+      " key. Just play with the form and see it update: "]
+     [:pre (with-out-str (pp/pprint data))]]))
+
+(defn event-log []
+  (let [event-log (re-frame/subscribe [:event-log])]
+    (fn []
+      [:div
+       [:h2 "Events"]
+       [:p "Free-form, when in Re-frame mode, fires events. These are the events:"]
+       [:pre (map #(with-out-str (pp/pprint %)) @event-log)]])))

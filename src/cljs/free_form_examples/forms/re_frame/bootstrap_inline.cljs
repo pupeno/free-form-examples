@@ -13,9 +13,10 @@
 
 (re-frame/register-handler
   :update-re-frame-bootstrap-inline
-  (fn [db args]
-    (println args)
-    db))
+  (fn [db [_ keys value :as event]]
+    (-> db
+        (assoc-in (cons :re-frame-bootstrap-inline keys) value)
+        (update :event-log #(conj % event)))))
 
 (defmethod layout/pages :re-frame-bootstrap-inline [_]
   (let [data (re-frame/subscribe [:re-frame-bootstrap-inline])]
@@ -36,4 +37,6 @@
          [:free-form/field {:type  :password
                             :label "Password"
                             :keys  [:password]}] " "
-         [:button.btn.btn-primary {:type :submit} "Button"]]]])))
+         [:button.btn.btn-primary {:type :submit} "Button"]]]
+       [layout/state @data]
+       [layout/event-log]])))

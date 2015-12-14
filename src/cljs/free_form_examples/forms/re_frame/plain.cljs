@@ -13,9 +13,10 @@
 
 (re-frame/register-handler
   :update-re-frame-plain
-  (fn [db args]
-    (println args)
-    db))
+  (fn [db [_ keys value :as event]]
+    (-> db
+        (assoc-in (cons :re-frame-plain keys) value)
+        (update :event-log #(conj % event)))))
 
 (defmethod layout/pages :re-frame-plain [_]
   (let [data (re-frame/subscribe [:re-frame-plain])]
@@ -46,4 +47,6 @@
                                 :id              :password
                                 :placeholder     "placeholder@example.com"}]
           [:div.errors {:free-form/error-message {:key :password}} [:p.error]]]
-         [:button "Button"]]]])))
+         [:button "Button"]]]
+       [layout/state @data]
+       [layout/event-log]])))
