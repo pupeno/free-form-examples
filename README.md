@@ -18,6 +18,7 @@ To run against the current snapshot of Free-form, make sure it's present in the 
 directly there:
 
 ```bash
+mkdir checkouts
 cd checkouts
 git clone git@github.com:carouselapps/free-form.git
 ```
@@ -25,6 +26,7 @@ git clone git@github.com:carouselapps/free-form.git
 or symlink to wherever it is:
 
 ```bash
+mkdir checkouts
 cd checkouts
 ln -s /path/to/free-form
 ```
