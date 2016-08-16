@@ -1,4 +1,4 @@
-;;;; Copyright © 2015 Carousel Apps, Ltd. All rights reserved.
+;;;; Copyright © 2015, 2016 José Pablo Fernández Silva, All rights reserved.
 
 (ns free-form-examples.forms.re-frame.bootstrap-3-horizontal
   (:require

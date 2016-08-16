@@ -1,4 +1,4 @@
-;;;; Copyright © 2015 Carousel Apps, Ltd. All rights reserved.
+;;;; Copyright © 2015, 2016 José Pablo Fernández Silva, All rights reserved.
 
 (ns free-form-examples.layout
   (:require [cljs.pprint :as pp]
@@ -52,7 +52,7 @@
             [:li [:a {:href (routing/url-for :re-frame-bootstrap-3)} "On re-frame"]]]]]
          [:ul.nav.navbar-nav.navbar-right
           [:li
-           [:a {:href "https://CarouselApps.com/free-form"} "Free Form " [:i.fa.fa-external-link]]]]]]])))
+           [:a {:href "https://github.com/pupeno/free-form"} "Free Form " [:i.fa.fa-external-link]]]]]]])))
 
 (defn main-panel []
   (let [current-route (re-frame/subscribe [:current-route])]
@@ -64,16 +64,16 @@
        [:footer.footer
         [:div.container
          [:p.text-muted
-          "Copyright © 2015 "
-          [:a {:href "https://carouselapps.com"} "Carousel Apps"]
-          ", Ltd. All rights reserved."]]]])))
+          "Copyright © 2015, 2016 "
+          [:a {:href "https://pupeno.com"} "J. Pablo Fernández"]
+          ", All rights reserved."]]]])))
 
 (defmethod pages :home [_]
   (fn [_]
     [:div
      [:h1 "Free-form example application"]
      [:p "This is an example application for the "
-      [:a {:href "https://CarouselApps.com/free-form"} "Free-form"]
+      [:a {:href "https://github.com/pupeno/free-form"} "Free-form"]
       " library. A library to build forms in ClojureScript that's super flexible giving you the freedom to shape
       the form anyway you want at the same time as helping you play nice with both Reagent and Re-Frame."]]))
 
@@ -108,7 +108,7 @@
 (defn source-code-button [file]
   [:div.pull-right
    [:a.btn.btn-default
-    {:href   (str "https://github.com/carouselapps/free-form-examples/blob/master/src/cljs/free_form_examples/forms/" file)
+    {:href   (str "https://github.com/pupeno/free-form-examples/blob/master/src/cljs/free_form_examples/forms/" file)
      :target "_blank"}
     [:span.fa.fa-github]
     " View Source Code"]])
