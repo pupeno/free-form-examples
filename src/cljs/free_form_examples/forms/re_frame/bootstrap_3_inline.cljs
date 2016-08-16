@@ -55,7 +55,10 @@
                                       "Letters" [:a "A"
                                                  :b "B"
                                                  :c "C"
-                                                 :d "D"]]}]
+                                                 :d "D"]]}] " "
+         [:free-form/field {:type  :textarea
+                            :label "Text area"
+                            :key   :textarea}]
          [:button.btn.btn-primary {:type :submit} "Button"]]]
        [layout/state @data :re-frame-bootstrap-3-inline]
        [layout/event-log]])))

@@ -44,5 +44,8 @@
                                                  :b "B"
                                                  :c "C"
                                                  :d "D"]]}]
+         [:free-form/field {:type  :textarea
+                            :label "Text area"
+                            :key   :textarea}]
          [:button.btn.btn-primary {:type :submit} "Button"]]]
        [layout/state @data]])))

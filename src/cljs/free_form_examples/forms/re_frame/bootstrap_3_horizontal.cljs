@@ -60,6 +60,9 @@
                                                  :b "B"
                                                  :c "C"
                                                  :d "D"]]}]
+         [:free-form/field {:type  :textarea
+                            :label "Text area"
+                            :key   :textarea}]
          [:div.form-group
           [:div.col-sm-offset-2.col-sm-5
            [:button.btn.btn-primary {:type :submit}
