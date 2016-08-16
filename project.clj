@@ -18,7 +18,7 @@
                  [re-frame "0.7.0"]
                  [com.domkm/silk "0.1.2"]
                  [kibu/pushy "0.3.6"]
-                 [com.pupeno/free-form "0.3.0-SNAPSHOT"]]
+                 [com.pupeno/free-form "0.3.0"]]
 
   :min-lein-version "2.5.3"
 
