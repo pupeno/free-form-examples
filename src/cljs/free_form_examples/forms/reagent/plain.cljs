@@ -59,6 +59,6 @@
             [:option {:value :b} "B"]
             [:option {:value :c} "C"]
             [:option {:value :d} "D"]]]
-          [:div.errors {:free-form/error-message {:key :select}} [:p.error]]]
+          [:div.errors {:free-form/error-message {:key :select-with-group}} [:p.error]]]
          [:button "Button"]]]
        [layout/state @data]])))
