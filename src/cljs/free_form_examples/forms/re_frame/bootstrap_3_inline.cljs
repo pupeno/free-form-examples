@@ -58,7 +58,10 @@
                                                  :d "D"]]}] " "
          [:free-form/field {:type  :textarea
                             :label "Text area"
-                            :key   :textarea}]
+                            :key   :textarea}] " "
+         [:free-form/field {:type  :text
+                            :label "Text with deep keys"
+                            :keys  [:t :e :x :t]}]
          [:button.btn.btn-primary {:type :submit} "Button"]]]
        [layout/state @data :re-frame-bootstrap-3-inline]
        [layout/event-log]])))

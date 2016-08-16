@@ -49,6 +49,9 @@
          [:free-form/field {:type  :textarea
                             :label "Text area"
                             :key   :textarea}]
+         [:free-form/field {:type  :text
+                            :label "Text with deep keys"
+                            :keys  [:t :e :x :t]}]
          [:div.form-group
           [:div.col-sm-offset-2.col-sm-5
            [:button.btn.btn-primary {:type :submit}

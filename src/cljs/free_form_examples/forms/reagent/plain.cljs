@@ -65,5 +65,12 @@
           [:textarea.form-control {:free-form/input {:key :textarea}
                                    :id              :textarea}]
           [:div.errors {:free-form/error-message {:key :textarea}} [:p.error]]]
+         [:div.field {:free-form/error-class {:key [:t :e :x :t] :error "has-error"}}
+          [:label {:for :text} "Text with deep keys"]
+          [:input.form-control {:free-form/input {:keys [:t :e :x :t]}
+                                :type            :text
+                                :id              :text
+                                :placeholder     "placeholder"}]
+          [:div.errors {:free-form/error-message {:keys [:t :e :x :t]}} [:p.error]]]
          [:button "Button"]]]
        [layout/state @data]])))
