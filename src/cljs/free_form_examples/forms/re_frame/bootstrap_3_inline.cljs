@@ -41,14 +41,16 @@
          [:free-form/field {:type    :select
                             :label   "Select"
                             :key     :select
-                            :options [:dog "Dog"
+                            :options ["" ""
+                                      :dog "Dog"
                                       :cat "Cat"
                                       :squirrel "Squirrel"
                                       :giraffe "Giraffe"]}] " "
          [:free-form/field {:type    :select
                             :label   "Select with group"
                             :key     :select-with-group
-                            :options ["Numbers" [:one "One"
+                            :options ["" ""
+                                      "Numbers" [:one "One"
                                                  :two "Two"
                                                  :three "Three"
                                                  :four "Four"]

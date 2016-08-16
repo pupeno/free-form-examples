@@ -39,6 +39,7 @@
           [:select.form-control {:free-form/input {:key :select}
                                  :type            :select
                                  :id              :select}
+           [:option]
            [:option {:value :dog} "Dog"]
            [:option {:value :cat} "Cat"]
            [:option {:value :squirrel} "Squirrel"]
@@ -49,6 +50,7 @@
           [:select.form-control {:free-form/input {:key :select-with-group}
                                  :type            :select
                                  :id              :select-with-group}
+           [:option]
            [:optgroup {:label "Numbers"}
             [:option {:value :one} "One"]
             [:option {:value :two} "Two"]
