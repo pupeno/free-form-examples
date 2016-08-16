@@ -27,10 +27,8 @@
   :plugins [[lein-cljsbuild "1.1.1"]
             [lein-figwheel "0.5.0-2"]
             [lein-ring "0.9.7"]
-            [environ/environ.lein "0.3.1"]
+            [lein-environ "1.1.0"]
             [lein-heroku "0.5.3"]]
-
-  :hooks [environ.leiningen.hooks]
 
   :ring {:handler free-form-examples.core/app}
 
