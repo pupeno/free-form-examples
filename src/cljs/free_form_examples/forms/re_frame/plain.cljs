@@ -48,6 +48,32 @@
                                 :id              :password
                                 :placeholder     "placeholder@example.com"}]
           [:div.errors {:free-form/error-message {:key :password}} [:p.error]]]
+         [:div.field {:free-form/error-class {:key :select :error "has-error"}}
+          [:label {:for :select} "Select"]
+          [:select.form-control {:free-form/input {:key :select}
+                                 :type            :select
+                                 :id              :select}
+           [:option {:value :dog} "Dog"]
+           [:option {:value :cat} "Cat"]
+           [:option {:value :squirrel} "Squirrel"]
+           [:option {:value :giraffe} "Giraffe"]]
+          [:div.errors {:free-form/error-message {:key :select}} [:p.error]]]
+         [:div.field {:free-form/error-class {:key :select :error "has-error"}}
+          [:label {:for :select} "Select with groups"]
+          [:select.form-control {:free-form/input {:key :select-with-group}
+                                 :type            :select
+                                 :id              :select-with-group}
+           [:optgroup {:label "Numbers"}
+            [:option {:value :one} "One"]
+            [:option {:value :two} "Two"]
+            [:option {:value :three} "Three"]
+            [:option {:value :four} "Four"]]
+           [:optgroup {:label "Leters"}
+            [:option {:value :a} "A"]
+            [:option {:value :b} "B"]
+            [:option {:value :c} "C"]
+            [:option {:value :d} "D"]]]
+          [:div.errors {:free-form/error-message {:key :select}} [:p.error]]]
          [:button "Button"]]]
        [layout/state @data :re-frame-plain]
        [layout/event-log]])))

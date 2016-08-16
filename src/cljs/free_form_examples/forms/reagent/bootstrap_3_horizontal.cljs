@@ -28,6 +28,24 @@
          [:free-form/field {:type  :password
                             :label "Password"
                             :keys  [:password]}]
+         [:free-form/field {:type    :select
+                            :label   "Select"
+                            :key     :select
+                            :options [:dog "Dog"
+                                      :cat "Cat"
+                                      :squirrel "Squirrel"
+                                      :giraffe "Giraffe"]}]
+         [:free-form/field {:type    :select
+                            :label   "Select with group"
+                            :key     :select-with-group
+                            :options ["Numbers" [:one "One"
+                                                 :two "Two"
+                                                 :three "Three"
+                                                 :four "Four"]
+                                      "Letters" [:a "A"
+                                                 :b "B"
+                                                 :c "C"
+                                                 :d "D"]]}]
          [:div.form-group
           [:div.col-sm-offset-2.col-sm-5
            [:button.btn.btn-primary {:type :submit}
