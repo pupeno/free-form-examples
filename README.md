@@ -41,6 +41,14 @@ can add it's directory to project.clj:
                      #_other-stuff]}
 ```
 
+## Deploying
+
+```bash
+lein heroku deploy
+```
+
+by using https://devcenter.heroku.com/articles/deploying-clojure-applications-with-the-heroku-leiningen-plugin
+
 ## License
 
 Copyright © 2015, 2016 José Pablo Fernández Silva, All rights reserved.
