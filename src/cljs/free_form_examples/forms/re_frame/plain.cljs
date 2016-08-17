@@ -76,7 +76,7 @@
             [:option {:value :c} "C"]
             [:option {:value :d} "D"]]]
           [:div.errors {:free-form/error-message {:key :select-with-group}} [:p.error]]]
-         [:div.field {:free-form/error-class {:key :text :error "has-error"}}
+         [:div.field {:free-form/error-class {:key :textarea :error "has-error"}}
           [:label {:for :text-area} "Text area"]
           [:textarea.form-control {:free-form/input {:key :textarea}
                                    :id              :textarea}]
