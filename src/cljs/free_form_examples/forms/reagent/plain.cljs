@@ -11,7 +11,7 @@
       [:div
        [layout/source-code-button "reagent/plain.cljs"]
        [:h1 "Reagent"]
-       [free-form/form {} {} (fn [keys value] (swap! data #(assoc-in % keys value)))
+       [free-form/form @data (:-errors @data) (fn [keys value] (swap! data #(assoc-in % keys value)))
         [:form {:noValidate true}
          [:div.errors {:free-form/error-message {:key :-general}} [:p.error]]
          [:div.field {:free-form/error-class {:key :text :error "has-error"}}

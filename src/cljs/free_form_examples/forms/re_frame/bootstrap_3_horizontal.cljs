@@ -25,7 +25,7 @@
       [:div
        [layout/source-code-button "re_frame/bootstrap_3_horizontal.cljs"]
        [:h1 "Re-frame Bootstrap 3 Horizontal"]
-       [free-form/form {} {} :update-re-frame-bootstrap-3-horizontal
+       [free-form/form @data (:-errors @data) :update-re-frame-bootstrap-3-horizontal
         [:form.form-horizontal {:noValidate        true
                                 :free-form/options {:mode :bootstrap-3
                                                     #_:label-width #_2

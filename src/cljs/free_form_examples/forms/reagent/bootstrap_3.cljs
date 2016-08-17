@@ -11,7 +11,7 @@
       [:div
        [layout/source-code-button "reagent/bootstrap_3.cljs"]
        [:h1 "Reagent Bootstrap 3"]
-       [free-form/form {} {} (fn [keys value] (swap! data #(assoc-in % keys value)))
+       [free-form/form @data (:-errors @data) (fn [keys value] (swap! data #(assoc-in % keys value)))
         [:form {:noValidate        true
                 :free-form/options {:mode :bootstrap-3}}
          [:div.col-sm-offset-2.col-sm-10 {:free-form/error-message {:key :-general}} [:p.text-danger]]
