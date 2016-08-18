@@ -6,7 +6,8 @@
             [free-form-examples.layout :as layout]))
 
 (defmethod layout/pages :reagent-bootstrap-3 [_]
-  (let [data (reagent/atom {})]
+  (let [data (reagent/atom {})
+        validation-error (reagent/atom {})]
     (fn [_]
       [:div
        [layout/source-code-button "reagent/bootstrap_3.cljs"]
@@ -53,4 +54,6 @@
                             :label "Text with deep keys"
                             :keys  [:t :e :x :t]}]
          [:button.btn.btn-primary {:type :submit} "Button"]]]
+       [:h2 "Controls"]
+       [layout/validation-errors-control :reagent data validation-error]
        [layout/state @data]])))

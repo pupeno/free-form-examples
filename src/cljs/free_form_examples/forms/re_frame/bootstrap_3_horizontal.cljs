@@ -72,5 +72,7 @@
           [:div.col-sm-offset-2.col-sm-5
            [:button.btn.btn-primary {:type :submit}
             "Button"]]]]]
+       [:h2 "Controls"]
+       [layout/validation-errors-control :re-frame data :re-frame-bootstrap-3-horizontal]
        [layout/state @data :re-frame-bootstrap-3-horizontal]
        [layout/event-log]])))

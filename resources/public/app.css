@@ -25,3 +25,14 @@ footer.footer .container {
 footer.footer .container .text-muted {
   margin: 20px 0;
 }
+
+div.field.validation-errors {
+  color: red;
+}
+
+div.field.validation-errors input,
+div.field.validation-errors select,
+div.field.validation-errors textarea {
+  border-color: red;
+  color: red;
+}

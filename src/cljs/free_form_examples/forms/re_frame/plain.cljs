@@ -1,7 +1,8 @@
 ;;;; Copyright © 2015, 2016 José Pablo Fernández Silva, All rights reserved.
 
 (ns free-form-examples.forms.re-frame.plain
-  (:require [reagent.ratom :as ratom :include-macros true]
+  (:require [reagent.core :as reagent]
+            [reagent.ratom :as ratom :include-macros true]
             [re-frame.core :as re-frame]
             [free-form.re-frame :as free-form]
             [free-form-examples.layout :as layout]))
@@ -27,28 +28,28 @@
        [free-form/form @data (:-errors @data) :update-re-frame-plain
         [:form {:noValidate true}
          [:div.errors {:free-form/error-message {:key :-general}} [:p.error]]
-         [:div.field {:free-form/error-class {:key :text :error "has-error"}}
+         [:div.field {:free-form/error-class {:key :text :error "validation-errors"}}
           [:label {:for :text} "Text"]
           [:input.form-control {:free-form/input {:key :text}
                                 :type            :text
                                 :id              :text
                                 :placeholder     "placeholder@example.com"}]
           [:div.errors {:free-form/error-message {:key :text}} [:p.error]]]
-         [:div.field {:free-form/error-class {:key :email :error "has-error"}}
+         [:div.field {:free-form/error-class {:key :email :error "validation-errors"}}
           [:label {:for :email} "Email"]
           [:input.form-control {:free-form/input {:key :email}
                                 :type            :email
                                 :id              :email
                                 :placeholder     "placeholder@example.com"}]
           [:div.errors {:free-form/error-message {:key :email}} [:p.error]]]
-         [:div.field {:free-form/error-class {:key :password :error "has-error"}}
+         [:div.field {:free-form/error-class {:key :password :error "validation-errors"}}
           [:label {:for :password} "Password"]
           [:input.form-control {:free-form/input {:key :password}
                                 :type            :password
                                 :id              :password
                                 :placeholder     "placeholder@example.com"}]
           [:div.errors {:free-form/error-message {:key :password}} [:p.error]]]
-         [:div.field {:free-form/error-class {:key :select :error "has-error"}}
+         [:div.field {:free-form/error-class {:key :select :error "validation-errors"}}
           [:label {:for :select} "Select"]
           [:select.form-control {:free-form/input {:key :select}
                                  :type            :select
@@ -59,7 +60,7 @@
            [:option {:value :squirrel} "Squirrel"]
            [:option {:value :giraffe} "Giraffe"]]
           [:div.errors {:free-form/error-message {:key :select}} [:p.error]]]
-         [:div.field {:free-form/error-class {:key :select :error "has-error"}}
+         [:div.field {:free-form/error-class {:key :select-with-group :error "validation-errors"}}
           [:label {:for :select} "Select with groups"]
           [:select.form-control {:free-form/input {:key :select-with-group}
                                  :type            :select
@@ -76,12 +77,12 @@
             [:option {:value :c} "C"]
             [:option {:value :d} "D"]]]
           [:div.errors {:free-form/error-message {:key :select-with-group}} [:p.error]]]
-         [:div.field {:free-form/error-class {:key :textarea :error "has-error"}}
+         [:div.field {:free-form/error-class {:key :textarea :error "validation-errors"}}
           [:label {:for :text-area} "Text area"]
           [:textarea.form-control {:free-form/input {:key :textarea}
                                    :id              :textarea}]
           [:div.errors {:free-form/error-message {:key :textarea}} [:p.error]]]
-         [:div.field {:free-form/error-class {:key [:t :e :x :t] :error "has-error"}}
+         [:div.field {:free-form/error-class {:key [:t :e :x :t] :error "validation-errors"}}
           [:label {:for :text} "Text with deep keys"]
           [:input.form-control {:free-form/input {:keys [:t :e :x :t]}
                                 :type            :text
@@ -89,5 +90,7 @@
                                 :placeholder     "placeholder"}]
           [:div.errors {:free-form/error-message {:keys [:t :e :x :t]}} [:p.error]]]
          [:button "Button"]]]
+       [:h2 "Controls"]
+       [layout/validation-errors-control :re-frame data :re-frame-plain]
        [layout/state @data :re-frame-plain]
        [layout/event-log]])))

@@ -2,7 +2,10 @@
 
 (ns free-form-examples.layout
   (:require [cljs.pprint :as pp]
+            [reagent.ratom :as ratom :include-macros true]
             [re-frame.core :as re-frame]
+            [free-form.core :as free-form]
+            [free-form.re-frame :as re-frame-free-form]
             [free-form-examples.routing :as routing]))
 
 (defmulti pages :name)
@@ -112,3 +115,71 @@
      :target "_blank"}
     [:span.fa.fa-github]
     " View Source Code"]])
+
+(defn- add-validation-error [event data validation-error]
+  (.preventDefault event)
+  (swap! data (fn [data]
+                (let [error-field (keyword (:field @validation-error))
+                      error-message (:message @validation-error)]
+                  (update-in data [:-errors error-field] #(cons error-message %1))))))
+
+(re-frame/register-handler
+  :update-validation-error
+  (fn [db [_ keys value]]
+    (-> db
+        (assoc-in (cons :validation-error keys) value))))
+
+(re-frame/register-sub
+  :validation-error
+  (fn [db]
+    (ratom/reaction (:validation-error @db))))
+
+(re-frame/register-handler
+  :add-validation-errors-to-form
+  (fn [db [_ target]]
+    (let [error-field (keyword (:field (:validation-error db)))
+          error-message (:message (:validation-error db))]
+      (.log js/console (pr-str target) (pr-str error-field) (pr-str error-message))
+      (update-in db [target :-errors error-field] #(cons error-message %1)))))
+
+(defn ui-dispatch
+  "Re-frame dispatch enhanced for UI. On top of re-frame-dispatching args, it:
+  * stops the default handling from happening, so links and forms don't get submitted.
+  * passes the target of the event (the form or link) as the last argument to the re-frame-dispatch."
+  [js-event event]
+  (.preventDefault js-event)
+  (re-frame/dispatch event))
+
+(defn validation-errors-control [mode data validation-error-or-reframe-target]
+  [:div
+   [:p "Add a validation error:"]
+   (let [actual-form [:form.form-horizontal {:noValidate        true
+                                             :free-form/options {:mode :bootstrap-3}
+                                             :on-submit         (case mode
+                                                                  :reagent #(add-validation-error %1 data validation-error-or-reframe-target)
+                                                                  :re-frame #(ui-dispatch % [:add-validation-errors-to-form validation-error-or-reframe-target]))}
+                      [:free-form/field {:type    :select
+                                         :label   "Field"
+                                         :key     :field
+                                         :options ["" ""
+                                                   "-general" "General"
+                                                   "email" "Email"
+                                                   "text" "Text"
+                                                   "password" "Password"
+                                                   "select" "Select"
+                                                   "select-with-group" "Select with group"
+                                                   "textarea" "Text area"]}]
+                      [:free-form/field {:type        :text
+                                         :key         :message
+                                         :label       "Message"
+                                         :placeholder "e.g.: Email should contain one and only one @."}]
+                      [:div.form-group
+                       [:div.col-sm-offset-2.col-sm-5
+                        [:button.btn.btn-primary {:type :submit}
+                         "Add Validation Error"]]]]]
+     (case mode
+       :reagent [free-form/form @validation-error-or-reframe-target {} (fn [keys value] (swap! validation-error-or-reframe-target #(assoc-in % keys value)))
+                 actual-form]
+       :re-frame (let [validation-error-data (re-frame/subscribe [:validation-error])]
+                   [re-frame-free-form/form @validation-error-data {} :update-validation-error
+                   actual-form])))])

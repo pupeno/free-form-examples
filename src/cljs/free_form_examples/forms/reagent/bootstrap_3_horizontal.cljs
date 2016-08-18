@@ -6,7 +6,8 @@
             [free-form-examples.layout :as layout]))
 
 (defmethod layout/pages :reagent-bootstrap-3-horizontal [_]
-  (let [data (reagent/atom {})]
+  (let [data (reagent/atom {})
+        validation-error (reagent/atom {})]
     (fn [_]
       [:div
        [layout/source-code-button "reagent/bootstrap_3_horizontal.cljs"]
@@ -58,4 +59,6 @@
           [:div.col-sm-offset-2.col-sm-5
            [:button.btn.btn-primary {:type :submit}
             "Button"]]]]]
+       [:h2 "Controls"]
+       [layout/validation-errors-control :reagent data validation-error]
        [layout/state @data]])))

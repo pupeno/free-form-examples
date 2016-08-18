@@ -65,5 +65,7 @@
                             :label "Text with deep keys"
                             :keys  [:t :e :x :t]}]
          [:button.btn.btn-primary {:type :submit} "Button"]]]
+       [:h2 "Controls"]
+       [layout/validation-errors-control :re-frame data :re-frame-bootstrap-3-inline]
        [layout/state @data :re-frame-bootstrap-3-inline]
        [layout/event-log]])))

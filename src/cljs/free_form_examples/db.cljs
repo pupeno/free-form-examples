@@ -5,12 +5,13 @@
             [reagent.ratom :as ratom :include-macros true]))
 
 (def default-db
-  {:current-route                 nil
-   :re-frame-plain                {}
+  {:current-route                   nil
+   :re-frame-plain                  {}
    :re-frame-bootstrap-3            {}
    :re-frame-bootstrap-3-horizontal {}
    :re-frame-bootstrap-3-inline     {}
-   :event-log                     ()})
+   :validation-error                {}
+   :event-log                       ()})
 
 (re-frame/register-handler
   :initialize-db
