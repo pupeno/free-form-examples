@@ -89,6 +89,14 @@
                                 :id              :text
                                 :placeholder     "placeholder"}]
           [:div.errors {:free-form/error-message {:keys [:t :e :x :t]}} [:p.error]]]
+         [:div.field {:free-form/error-class {:key        :text-with-extra-validation-errors :error "validation-errors"
+                                              :extra-keys [[:text] [:-general]]}}
+          [:label {:for :text-with-extra-validation-errors} "Text with extra validation errors"]
+          [:input.form-control {:free-form/input {:key :text-with-extra-validation-errors}
+                                :type            :text
+                                :id              :text-with-extra-validation-errors
+                                :placeholder     "This will be marked as a validation error also when Text and General have validation errors."}]
+          [:div.errors {:free-form/error-message {:key :text-with-extra-validation-errors}} [:p.error]]]
          [:button "Button"]]]
        [:h2 "Controls"]
        [layout/validation-errors-control :re-frame data :re-frame-plain]

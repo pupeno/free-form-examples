@@ -168,7 +168,8 @@
                                                    "password" "Password"
                                                    "select" "Select"
                                                    "select-with-group" "Select with group"
-                                                   "textarea" "Text area"]}]
+                                                   "textarea" "Text area"
+                                                   "text-with-extra-validation-errors" "Text with extra validation errors"]}]
                       [:free-form/field {:type        :text
                                          :key         :message
                                          :label       "Message"

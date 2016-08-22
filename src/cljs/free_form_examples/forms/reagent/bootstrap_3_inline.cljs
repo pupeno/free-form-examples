@@ -51,7 +51,12 @@
                             :key   :textarea}] " "
          [:free-form/field {:type  :text
                             :label "Text with deep keys"
-                            :keys  [:t :e :x :t]}]
+                            :keys  [:t :e :x :t]}] " "
+         [:free-form/field {:type                        :text
+                            :key                         :text-with-extra-validation-errors
+                            :extra-validation-error-keys [[:text] [:-general]]
+                            :label                       "Text with extra validation errors"
+                            :placeholder                 "This will be marked as a validation error also when Text and General have validation errors."}] " "
          [:button.btn.btn-primary {:type :submit} "Button"]]]
        [:h2 "Controls"]
        [layout/validation-errors-control :reagent data validation-error]
