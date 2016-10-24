@@ -16,9 +16,6 @@
             free-form-examples.forms.re-frame.bootstrap-3-horizontal
             free-form-examples.forms.re-frame.bootstrap-3-inline))
 
-(when config/debug?
-  (println "dev mode"))
-
 (defn mount-root []
   (reagent/render [layout/main-panel]
                   (.getElementById js/document "app")))
