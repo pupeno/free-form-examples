@@ -7,12 +7,12 @@
             [free-form.re-frame :as free-form]
             [free-form-examples.layout :as layout]))
 
-(re-frame/register-sub
+(re-frame/reg-sub-raw
   :re-frame-plain
   (fn [db]
     (ratom/reaction (:re-frame-plain @db))))
 
-(re-frame/register-handler
+(re-frame/reg-event-db
   :update-re-frame-plain
   (fn [db [_ keys value :as event]]
     (-> db

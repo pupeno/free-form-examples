@@ -7,12 +7,12 @@
             [free-form-examples.layout :as layout]
             [free-form-examples.routing :as routing]))
 
-(re-frame/register-sub
+(re-frame/reg-sub-raw
   :re-frame-bootstrap-3
   (fn [db]
     (ratom/reaction (:re-frame-bootstrap-3 @db))))
 
-(re-frame/register-handler
+(re-frame/reg-event-db
   :update-re-frame-bootstrap-3
   (fn [db [_ keys value :as event]]
     (-> db

@@ -13,17 +13,17 @@
    :validation-error                {}
    :event-log                       ()})
 
-(re-frame/register-handler
+(re-frame/reg-event-db
   :initialize-db
   (fn [_ _]
     default-db))
 
-(re-frame/register-sub
+(re-frame/reg-sub-raw
   :db
   (fn [db]
     (ratom/reaction @db)))
 
-(re-frame/register-sub
+(re-frame/reg-sub-raw
   :event-log
   (fn [db]
     (ratom/reaction (:event-log @db))))

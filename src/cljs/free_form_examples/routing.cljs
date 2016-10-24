@@ -51,7 +51,7 @@
         (when-let [parsed-path (parse-path path)]
           (dispatch-route parsed-path))))))
 
-(re-frame/register-handler
+(re-frame/reg-event-db
   :redirect-to
   (fn [db [& args]]
     (apply redirect-to (drop 1 args))
@@ -61,12 +61,12 @@
 (defmethod display-page :default [_current-route db]
   db)
 
-(re-frame/register-handler
+(re-frame/reg-event-db
   :set-current-route
   (fn [db [_name current-route]]
     (display-page current-route (assoc db :current-route current-route))))
 
-(re-frame/register-sub
+(re-frame/reg-sub-raw
   :current-route
   (fn [db _]
     (ratom/reaction (:current-route @db))))

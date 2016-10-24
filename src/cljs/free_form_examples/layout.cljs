@@ -123,18 +123,18 @@
                       error-message (:message @validation-error)]
                   (update-in data [:-errors error-field] #(cons error-message %1))))))
 
-(re-frame/register-handler
+(re-frame/reg-event-db
   :update-validation-error
   (fn [db [_ keys value]]
     (-> db
         (assoc-in (cons :validation-error keys) value))))
 
-(re-frame/register-sub
+(re-frame/reg-sub-raw
   :validation-error
   (fn [db]
     (ratom/reaction (:validation-error @db))))
 
-(re-frame/register-handler
+(re-frame/reg-event-db
   :add-validation-errors-to-form
   (fn [db [_ target]]
     (let [error-field (keyword (:field (:validation-error db)))

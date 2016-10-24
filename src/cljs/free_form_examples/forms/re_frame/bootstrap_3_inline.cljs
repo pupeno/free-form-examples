@@ -6,12 +6,12 @@
             [free-form.re-frame :as free-form]
             [free-form-examples.layout :as layout]))
 
-(re-frame/register-sub
+(re-frame/reg-sub-raw
   :re-frame-bootstrap-3-inline
   (fn [db]
     (ratom/reaction (:re-frame-bootstrap-3-inline @db))))
 
-(re-frame/register-handler
+(re-frame/reg-event-db
   :update-re-frame-bootstrap-3-inline
   (fn [db [_ keys value :as event]]
     (-> db
