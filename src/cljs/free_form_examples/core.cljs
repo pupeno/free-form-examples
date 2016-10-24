@@ -4,8 +4,8 @@
   (:require [reagent.core :as reagent]
             [re-frame.core :as re-frame]
             [free-form-examples.layout :as layout]
-            [free-form-examples.config :as config]
             [free-form-examples.routing :as routing]
+            free-form-examples.config
             free-form-examples.db
             free-form-examples.forms.reagent.plain
             free-form-examples.forms.reagent.bootstrap-3
