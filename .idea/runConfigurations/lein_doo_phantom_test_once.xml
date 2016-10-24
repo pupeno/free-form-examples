@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="lein doo phantom test once" type="LeiningenRunConfiguration" factoryName="Leiningen">
+    <LeiningenRunnerParameters>
+      <option name="myGoals">
+        <list>
+          <option value="doo" />
+          <option value="phantom" />
+          <option value="test" />
+          <option value="once" />
+        </list>
+      </option>
+      <option name="myWorkingDirectory" value="$PROJECT_DIR$/../free-form" />
+      <option name="profiles" value="" />
+      <option name="trampoline" value="false" />
+    </LeiningenRunnerParameters>
+    <method />
+  </configuration>
+</component>

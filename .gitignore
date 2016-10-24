@@ -19,3 +19,6 @@
 .idea/dynamic.xml
 .idea/uiDesigner.xml
 .idea/libraries
+.idea/replstate.xml
+*.ipr
+*.iws
