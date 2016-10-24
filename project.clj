@@ -8,14 +8,14 @@
   :license {:name "Eclipse Public License v1.0"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.170"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.9.293"]
                  [compojure "1.5.1"]
                  [ring/ring-defaults "0.2.1"]
                  [ring/ring-jetty-adapter "1.5.0"]
                  [environ "1.1.0"]
-                 [reagent "0.5.1"]
-                 [re-frame "0.7.0"]
+                 [reagent "0.6.0"]
+                 [re-frame "0.8.0"]
                  [com.domkm/silk "0.1.2"]
                  [kibu/pushy "0.3.6"]
                  [com.pupeno/free-form "0.3.0"]]
