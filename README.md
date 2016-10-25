@@ -44,6 +44,7 @@ can add it's directory to project.clj:
 ## Deploying
 
 ```bash
+lein uberjar
 lein heroku deploy
 ```
 
