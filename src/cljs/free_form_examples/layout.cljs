@@ -68,8 +68,7 @@
         [:div.container
          [:p.text-muted
           "Copyright © 2015, 2016 "
-          [:a {:href "https://pupeno.com"} "J. Pablo Fernández"]
-          ", All rights reserved."]]]])))
+          [:a {:href "https://pupeno.com"} "J. Pablo Fernández"]]]]])))
 
 (defmethod pages :home [_]
   (fn [_]
