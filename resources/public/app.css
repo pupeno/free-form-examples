@@ -26,7 +26,8 @@ footer.footer .container .text-muted {
   margin: 20px 0;
 }
 
-div.field.validation-errors {
+div.field.validation-errors,
+div.errors p.error {
   color: red;
 }
 
