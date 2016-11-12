@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="lein doo phantom test once" type="LeiningenRunConfiguration" factoryName="Leiningen">
+  <configuration default="false" name="lein doo phantom test once (run tests)" type="LeiningenRunConfiguration" factoryName="Leiningen" singleton="true">
     <LeiningenRunnerParameters>
       <option name="myGoals">
         <list>
