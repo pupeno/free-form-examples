@@ -18,6 +18,7 @@
                  [re-frame "0.8.0"]
                  [com.domkm/silk "0.1.2"]
                  [kibu/pushy "0.3.6"]
+                 [binaryage/devtools "0.8.3"]
                  [com.pupeno/free-form "0.4.1"]]
 
   :min-lein-version "2.5.3"
@@ -41,7 +42,8 @@
 
                              :figwheel     {:on-jsload "free-form-examples.core/mount-root"}
 
-                             :compiler     {:main                 free-form-examples.core
+                             :compiler     {:preloads             [devtools.preload]
+                                            :main                 free-form-examples.core
                                             :output-to            "resources/public/js/compiled/app.js"
                                             :output-dir           "resources/public/js/compiled/out"
                                             :asset-path           "/js/compiled/out"
