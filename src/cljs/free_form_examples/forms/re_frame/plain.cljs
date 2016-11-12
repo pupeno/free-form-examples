@@ -1,8 +1,7 @@
 ;;;; Copyright © 2015, 2016 José Pablo Fernández Silva, All rights reserved.
 
 (ns free-form-examples.forms.re-frame.plain
-  (:require [reagent.core :as reagent]
-            [reagent.ratom :as ratom :include-macros true]
+  (:require [reagent.ratom :as ratom :include-macros true]
             [re-frame.core :as re-frame]
             [free-form.re-frame :as free-form]
             [free-form-examples.layout :as layout]))
@@ -99,6 +98,6 @@
           [:div.errors {:free-form/error-message {:key :text-with-extra-validation-errors}} [:p.error]]]
          [:button "Button"]]]
        [:h2 "Controls"]
-       [layout/validation-errors-control :re-frame data :re-frame-plain]
+       [layout/controls :re-frame {:target :re-frame-plain}]
        [layout/state @data :re-frame-plain]
        [layout/event-log]])))

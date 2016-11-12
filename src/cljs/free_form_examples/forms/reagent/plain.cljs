@@ -6,8 +6,7 @@
             [free-form-examples.layout :as layout]))
 
 (defmethod layout/pages :reagent-plain [_]
-  (let [data (reagent/atom {})
-        validation-error (reagent/atom {})]
+  (let [data (reagent/atom {})]
     (fn [_]
       [:div
        [layout/source-code-button "reagent/plain.cljs"]
@@ -85,5 +84,5 @@
           [:div.errors {:free-form/error-message {:key :text-with-extra-validation-errors}} [:p.error]]]
          [:button "Button"]]]
        [:h2 "Controls"]
-       [layout/validation-errors-control :reagent data validation-error]
+       [layout/controls :reagent {:form-data data}]
        [layout/state @data]])))

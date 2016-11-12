@@ -1,11 +1,10 @@
 ;;;; Copyright © 2015, 2016 José Pablo Fernández Silva, All rights reserved.
 
 (ns free-form-examples.forms.re-frame.bootstrap-3-horizontal
-  (:require
-    [reagent.ratom :as ratom :include-macros true]
-    [re-frame.core :as re-frame]
-    [free-form.re-frame :as free-form]
-    [free-form-examples.layout :as layout]))
+  (:require [reagent.ratom :as ratom :include-macros true]
+            [re-frame.core :as re-frame]
+            [free-form.re-frame :as free-form]
+            [free-form-examples.layout :as layout]))
 
 (re-frame/reg-sub-raw
   :re-frame-bootstrap-3-horizontal
@@ -78,6 +77,6 @@
            [:button.btn.btn-primary {:type :submit}
             "Button"]]]]]
        [:h2 "Controls"]
-       [layout/validation-errors-control :re-frame data :re-frame-bootstrap-3-horizontal]
+       [layout/controls :re-frame {:target :re-frame-bootstrap-3-horizontal}]
        [layout/state @data :re-frame-bootstrap-3-horizontal]
        [layout/event-log]])))

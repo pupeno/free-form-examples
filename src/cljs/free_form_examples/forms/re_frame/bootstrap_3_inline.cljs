@@ -71,6 +71,6 @@
                             :placeholder                 "This will be marked as a validation error also when Text and General have validation errors."}] " "
          [:button.btn.btn-primary {:type :submit} "Button"]]]
        [:h2 "Controls"]
-       [layout/validation-errors-control :re-frame data :re-frame-bootstrap-3-inline]
+       [layout/controls :re-frame {:target :re-frame-bootstrap-3-inline}]
        [layout/state @data :re-frame-bootstrap-3-inline]
        [layout/event-log]])))

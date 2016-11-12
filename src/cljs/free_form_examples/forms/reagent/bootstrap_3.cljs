@@ -6,8 +6,7 @@
             [free-form-examples.layout :as layout]))
 
 (defmethod layout/pages :reagent-bootstrap-3 [_]
-  (let [data (reagent/atom {})
-        validation-error (reagent/atom {})]
+  (let [data (reagent/atom {})]
     (fn [_]
       [:div
        [layout/source-code-button "reagent/bootstrap_3.cljs"]
@@ -60,5 +59,5 @@
                             :placeholder                 "This will be marked as a validation error also when Text and General have validation errors."}]
          [:button.btn.btn-primary {:type :submit} "Button"]]]
        [:h2 "Controls"]
-       [layout/validation-errors-control :reagent data validation-error]
+       [layout/controls :reagent {:form-data data}]
        [layout/state @data]])))

@@ -6,7 +6,16 @@
             [re-frame.core :as re-frame]
             [free-form.core :as free-form]
             [free-form.re-frame :as re-frame-free-form]
-            [free-form-examples.routing :as routing]))
+            [free-form-examples.routing :as routing]
+            [reagent.core :as reagent]))
+
+(defn ui-dispatch
+  "Re-frame dispatch enhanced for UI. On top of re-frame-dispatching args, it:
+  * stops the default handling from happening, so links and forms don't get submitted.
+  * passes the target of the event (the form or link) as the last argument to the re-frame-dispatch."
+  [js-event event]
+  (.preventDefault js-event)
+  (re-frame/dispatch event))
 
 (defmulti pages :name)
 
@@ -115,12 +124,12 @@
     [:span.fa.fa-github]
     " View Source Code"]])
 
-(defn- add-validation-error [event data validation-error]
+(defn- add-validation-error [event form-data validation-error]
   (.preventDefault event)
-  (swap! data (fn [data]
-                (let [error-field (keyword (:field @validation-error))
-                      error-message (:message @validation-error)]
-                  (update-in data [:-errors error-field] #(cons error-message %1))))))
+  (swap! form-data (fn [form-data]
+                     (let [error-field (keyword (:field @validation-error))
+                           error-message (:message @validation-error)]
+                       (update-in form-data [:-errors error-field] #(cons error-message %1))))))
 
 (re-frame/reg-event-db
   :update-validation-error
@@ -138,48 +147,99 @@
   (fn [db [_ target]]
     (let [error-field (keyword (:field (:validation-error db)))
           error-message (:message (:validation-error db))]
-      (.log js/console (pr-str target) (pr-str error-field) (pr-str error-message))
       (update-in db [target :-errors error-field] #(cons error-message %1)))))
 
-(defn ui-dispatch
-  "Re-frame dispatch enhanced for UI. On top of re-frame-dispatching args, it:
-  * stops the default handling from happening, so links and forms don't get submitted.
-  * passes the target of the event (the form or link) as the last argument to the re-frame-dispatch."
-  [js-event event]
-  (.preventDefault js-event)
-  (re-frame/dispatch event))
+(defn- change-content [event form-data content-data]
+  (.preventDefault event)
+  (swap! form-data (fn [form-data]
+                     (let [field (keyword (:field @content-data))
+                           new-content (:new-content @content-data)]
+                       (assoc form-data field new-content)))))
 
-(defn validation-errors-control [mode data validation-error-or-reframe-target]
-  [:div
-   [:p "Add a validation error:"]
-   (let [actual-form [:form.form-horizontal {:noValidate        true
-                                             :free-form/options {:mode :bootstrap-3}
-                                             :on-submit         (case mode
-                                                                  :reagent #(add-validation-error %1 data validation-error-or-reframe-target)
-                                                                  :re-frame #(ui-dispatch % [:add-validation-errors-to-form validation-error-or-reframe-target]))}
-                      [:free-form/field {:type    :select
-                                         :label   "Field"
-                                         :key     :field
-                                         :options ["" ""
-                                                   "-general" "General"
-                                                   "email" "Email"
-                                                   "text" "Text"
-                                                   "password" "Password"
-                                                   "select" "Select"
-                                                   "select-with-group" "Select with group"
-                                                   "textarea" "Text area"
-                                                   "text-with-extra-validation-errors" "Text with extra validation errors"]}]
-                      [:free-form/field {:type        :text
-                                         :key         :message
-                                         :label       "Message"
-                                         :placeholder "e.g.: Email should contain one and only one @."}]
-                      [:div.form-group
-                       [:div.col-sm-offset-2.col-sm-5
-                        [:button.btn.btn-primary {:type :submit}
-                         "Add Validation Error"]]]]]
-     (case mode
-       :reagent [free-form/form @validation-error-or-reframe-target {} (fn [keys value] (swap! validation-error-or-reframe-target #(assoc-in % keys value)))
-                 actual-form]
-       :re-frame (let [validation-error-data (re-frame/subscribe [:validation-error])]
-                   [re-frame-free-form/form @validation-error-data {} :update-validation-error
-                   actual-form])))])
+(re-frame/reg-event-db
+  :update-change-content
+  (fn [db [_ keys value]]
+    (-> db
+        (assoc-in (cons :change-content keys) value))))
+
+(re-frame/reg-sub-raw
+  :change-content
+  (fn [db]
+    (ratom/reaction (:change-content @db))))
+
+(re-frame/reg-event-db
+  :change-content-in-form
+  (fn [db [_ target]]
+    (let [field (keyword (:field (:change-content db)))
+          new-content (:new-content (:change-content db))]
+      (assoc-in db [target field] new-content))))
+
+(defn controls [mode _]
+  (let [validation-error-data (case mode
+                                :reagent (reagent/atom {})
+                                :re-frame (re-frame/subscribe [:validation-error]))
+        change-content-data (case mode
+                              :reagent (reagent/atom {})
+                              :re-frame (re-frame/subscribe [:change-content]))]
+    (fn [mode {:keys [form-data target]}]
+      [:div
+       [:h4 "Add a validation error"]
+       (let [validation-error-form [:form.form-horizontal {:noValidate        true
+                                                           :free-form/options {:mode :bootstrap-3}
+                                                           :on-submit         (case mode
+                                                                                :reagent #(add-validation-error %1 form-data validation-error-data)
+                                                                                :re-frame #(ui-dispatch % [:add-validation-errors-to-form target]))}
+                                    [:free-form/field {:type    :select
+                                                       :label   "Field"
+                                                       :key     :field
+                                                       :options ["" ""
+                                                                 "-general" "General"
+                                                                 "text" "Text"
+                                                                 "email" "Email"
+                                                                 "password" "Password"
+                                                                 "select" "Select"
+                                                                 "select-with-group" "Select with group"
+                                                                 "textarea" "Text area"
+                                                                 "text-with-extra-validation-errors" "Text with extra validation errors"]}]
+                                    [:free-form/field {:type        :text
+                                                       :key         :message
+                                                       :label       "Message"
+                                                       :placeholder "e.g.: Email should contain one and only one @."}]
+                                    [:div.form-group
+                                     [:div.col-sm-offset-2.col-sm-5
+                                      [:button.btn.btn-primary {:type :submit}
+                                       "Add Validation Error"]]]]]
+         (case mode
+           :reagent [free-form/form @validation-error-data {} (fn [keys value] (swap! validation-error-data #(assoc-in % keys value)))
+                     validation-error-form]
+           :re-frame [re-frame-free-form/form @validation-error-data {} :update-validation-error
+                      validation-error-form]))
+       [:h4 "Change data"]
+       (let [change-content-form [:form.form-horizontal {:noValidate        true
+                                                         :free-form/options {:mode :bootstrap-3}
+                                                         :on-submit         (case mode
+                                                                              :reagent #(change-content %1 form-data change-content-data)
+                                                                              :re-frame #(ui-dispatch % [:change-content-in-form target]))}
+                                  [:free-form/field {:type    :select
+                                                     :label   "Field"
+                                                     :key     :field
+                                                     :options ["" ""
+                                                               "text" "Text"
+                                                               "email" "Email"
+                                                               "password" "Password"
+                                                               "select" "Select"
+                                                               "select-with-group" "Select with group"
+                                                               "textarea" "Text area"
+                                                               "text-with-extra-validation-errors" "Text with extra validation errors"]}]
+                                  [:free-form/field {:type  :text
+                                                     :key   :new-content
+                                                     :label "New content"}]
+                                  [:div.form-group
+                                   [:div.col-sm-offset-2.col-sm-5
+                                    [:button.btn.btn-primary {:type :submit}
+                                     "Change content"]]]]]
+         (case mode
+           :reagent [free-form/form @change-content-data {} (fn [keys value] (swap! change-content-data #(assoc-in % keys value)))
+                     change-content-form]
+           :re-frame [re-frame-free-form/form @change-content-data {} :update-change-content
+                      change-content-form]))])))
