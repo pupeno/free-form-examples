@@ -30,9 +30,8 @@
         " and "
         [:a {:href (routing/url-for :re-frame-bootstrap-3-inline)} "Bootsrap inline"]
         " versions of this form."]
-       [free-form/form @data (:-errors @data) :update-re-frame-bootstrap-3
-        [:form {:noValidate        true
-                :free-form/options {:mode :bootstrap-3}}
+       [free-form/form @data (:-errors @data) :update-re-frame-bootstrap-3 :bootstrap-3
+        [:form {:noValidate        true}
          [:div.col-sm-offset-2.col-sm-10 {:free-form/error-message {:key :-general}} [:p.text-danger]]
          [:free-form/field {:type        :text
                             :key         :text

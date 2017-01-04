@@ -7,13 +7,12 @@
 
 (defmethod layout/pages :reagent-bootstrap-3 [_]
   (let [data (reagent/atom {})]
-    (fn [_]
+    (fn []
       [:div
        [layout/source-code-button "reagent/bootstrap_3.cljs"]
        [:h1 "Reagent Bootstrap 3"]
-       [free-form/form @data (:-errors @data) (fn [keys value] (swap! data #(assoc-in % keys value)))
-        [:form {:noValidate        true
-                :free-form/options {:mode :bootstrap-3}}
+       [free-form/form @data (:-errors @data) (fn [keys value] (swap! data #(assoc-in % keys value))) :bootstrap-3
+        [:form {:noValidate true}
          [:div.col-sm-offset-2.col-sm-10 {:free-form/error-message {:key :-general}} [:p.text-danger]]
          [:free-form/field {:type        :text
                             :key         :text

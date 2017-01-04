@@ -24,9 +24,8 @@
       [:div
        [layout/source-code-button "re_frame/bootstrap_3_inline.cljs"]
        [:h1 "Re-frame Bootstrap 3 Inline"]
-       [free-form/form @data (:-errors @data) :update-re-frame-bootstrap-3-inline
-        [:form.form-inline {:noValidate        true
-                            :free-form/options {:mode :bootstrap-3}}
+       [free-form/form @data (:-errors @data) :update-re-frame-bootstrap-3-inline :bootstrap-3
+        [:form.form-inline {:noValidate        true}
          [:free-form/field {:type        :text
                             :key         :text
                             :label       "Text"

@@ -11,11 +11,8 @@
       [:div
        [layout/source-code-button "reagent/bootstrap_3_horizontal.cljs"]
        [:h1 "Reagent Bootstrap 3 Horizontal"]
-       [free-form/form @data (:-errors @data) (fn [keys value] (swap! data #(assoc-in % keys value)))
-        [:form.form-horizontal {:noValidate        true
-                                :free-form/options {:mode :bootstrap-3
-                                                    #_:label-width #_2
-                                                    #_:value-width #_10}}
+       [free-form/form @data (:-errors @data) (fn [keys value] (swap! data #(assoc-in % keys value))) :bootstrap-3
+        [:form.form-horizontal {:noValidate true}
          [:div.col-sm-offset-2.col-sm-10 {:free-form/error-message {:key :-general}} [:p.text-danger]]
          [:free-form/field {:type        :text
                             :key         :text

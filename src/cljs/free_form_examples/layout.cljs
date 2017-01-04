@@ -184,11 +184,10 @@
     (fn [mode {:keys [form-data target]}]
       [:div
        [:h4 "Add a validation error"]
-       (let [validation-error-form [:form.form-horizontal {:noValidate        true
-                                                           :free-form/options {:mode :bootstrap-3}
-                                                           :on-submit         (case mode
-                                                                                :reagent #(add-validation-error %1 form-data validation-error-data)
-                                                                                :re-frame #(ui-dispatch % [:add-validation-errors-to-form target]))}
+       (let [validation-error-form [:form.form-horizontal {:noValidate true
+                                                           :on-submit  (case mode
+                                                                         :reagent #(add-validation-error %1 form-data validation-error-data)
+                                                                         :re-frame #(ui-dispatch % [:add-validation-errors-to-form target]))}
                                     [:free-form/field {:type    :select
                                                        :label   "Field"
                                                        :key     :field
@@ -210,16 +209,15 @@
                                       [:button.btn.btn-primary {:type :submit}
                                        "Add Validation Error"]]]]]
          (case mode
-           :reagent [free-form/form @validation-error-data {} (fn [keys value] (swap! validation-error-data #(assoc-in % keys value)))
+           :reagent [free-form/form @validation-error-data {} (fn [keys value] (swap! validation-error-data #(assoc-in % keys value))) :bootstrap-3
                      validation-error-form]
-           :re-frame [re-frame-free-form/form @validation-error-data {} :update-validation-error
+           :re-frame [re-frame-free-form/form @validation-error-data {} :update-validation-error :bootstrap-3
                       validation-error-form]))
        [:h4 "Change data"]
-       (let [change-content-form [:form.form-horizontal {:noValidate        true
-                                                         :free-form/options {:mode :bootstrap-3}
-                                                         :on-submit         (case mode
-                                                                              :reagent #(change-content %1 form-data change-content-data)
-                                                                              :re-frame #(ui-dispatch % [:change-content-in-form target]))}
+       (let [change-content-form [:form.form-horizontal {:noValidate true
+                                                         :on-submit  (case mode
+                                                                       :reagent #(change-content %1 form-data change-content-data)
+                                                                       :re-frame #(ui-dispatch % [:change-content-in-form target]))}
                                   [:free-form/field {:type    :select
                                                      :label   "Field"
                                                      :key     :field
@@ -239,7 +237,7 @@
                                     [:button.btn.btn-primary {:type :submit}
                                      "Change content"]]]]]
          (case mode
-           :reagent [free-form/form @change-content-data {} (fn [keys value] (swap! change-content-data #(assoc-in % keys value)))
+           :reagent [free-form/form @change-content-data {} (fn [keys value] (swap! change-content-data #(assoc-in % keys value))) :bootstrap-3
                      change-content-form]
-           :re-frame [re-frame-free-form/form @change-content-data {} :update-change-content
+           :re-frame [re-frame-free-form/form @change-content-data {} :update-change-content :bootstrap-3
                       change-content-form]))])))

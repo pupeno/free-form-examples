@@ -24,11 +24,8 @@
       [:div
        [layout/source-code-button "re_frame/bootstrap_3_horizontal.cljs"]
        [:h1 "Re-frame Bootstrap 3 Horizontal"]
-       [free-form/form @data (:-errors @data) :update-re-frame-bootstrap-3-horizontal
-        [:form.form-horizontal {:noValidate        true
-                                :free-form/options {:mode :bootstrap-3
-                                                    #_:label-width #_2
-                                                    #_:value-width #_10}}
+       [free-form/form @data (:-errors @data) :update-re-frame-bootstrap-3-horizontal :bootstrap-3
+        [:form.form-horizontal {:noValidate true}
          [:div.col-sm-offset-2.col-sm-10 {:free-form/error-message {:key :-general}} [:p.text-danger]]
          [:free-form/field {:type        :text
                             :key         :text

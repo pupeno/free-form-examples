@@ -11,9 +11,8 @@
       [:div
        [layout/source-code-button "reagent/bootstrap_3_inline.cljs"]
        [:h1 "Reagent Bootstrap 3 Inline"]
-       [free-form/form @data (:-errors @data) (fn [keys value] (swap! data #(assoc-in % keys value)))
-        [:form.form-inline {:noValidate        true
-                            :free-form/options {:mode :bootstrap-3}}
+       [free-form/form @data (:-errors @data) (fn [keys value] (swap! data #(assoc-in % keys value))) :bootstrap-3
+        [:form.form-inline {:noValidate true}
          [:free-form/field {:type        :text
                             :key         :text
                             :label       "Text"
