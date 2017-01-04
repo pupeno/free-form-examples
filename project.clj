@@ -19,6 +19,7 @@
                  [com.domkm/silk "0.1.2"]
                  [kibu/pushy "0.3.6"]
                  [binaryage/devtools "0.8.3"]
+                 [cljs-ajax "0.5.8"]
                  [com.pupeno/free-form "0.4.1"]]
 
   :min-lein-version "2.5.3"

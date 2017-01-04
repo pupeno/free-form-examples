@@ -2,12 +2,12 @@
 
 (ns free-form-examples.layout
   (:require [cljs.pprint :as pp]
+            [reagent.core :as reagent]
             [reagent.ratom :as ratom :include-macros true]
             [re-frame.core :as re-frame]
             [free-form.core :as free-form]
             [free-form.re-frame :as re-frame-free-form]
-            [free-form-examples.routing :as routing]
-            [reagent.core :as reagent]))
+            [free-form-examples.routing :as routing]))
 
 (defn ui-dispatch
   "Re-frame dispatch enhanced for UI. On top of re-frame-dispatching args, it:
@@ -20,7 +20,7 @@
 (defmulti pages :name)
 
 (defmethod pages nil [_]                                    ; While the app is loading, the current-route is nil for an instant. Without this we would be showing :default, which is a page not found error.
-  [:div [:h1 "Loading"]])
+  [:div [:h1 "Loading..."]])
 
 (defmethod pages :default [_]
   [:div [:h1 "Page not found"]])
@@ -80,13 +80,19 @@
           [:a {:href "https://pupeno.com"} "José Pablo Fernández Silva"]]]]])))
 
 (defmethod pages :home [_]
-  (fn [_]
-    [:div
-     [:h1 "Free-form example application"]
-     [:p "This is an example application for the "
-      [:a {:href "https://github.com/pupeno/free-form"} "Free-form"]
-      " library. A library to build forms in ClojureScript that's super flexible giving you the freedom to shape
-      the form anyway you want at the same time as helping you play nice with both Reagent and Re-Frame."]]))
+  (let [readme (re-frame/subscribe [:readme])]
+    (fn [_]
+      [:div
+       [:h1 "Free-form example application"]
+       [:p "This is an example application for the "
+        [:a {:href "https://github.com/pupeno/free-form"} "Free-form"]
+        " library. A library to build forms in ClojureScript that's super flexible giving you the freedom to shape
+        the form anyway you want at the same time as helping you play nice with both Reagent and Re-Frame."]
+       [:div.markdown-body {:dangerouslySetInnerHTML {:__html @readme}}]])))
+
+(defmethod routing/display-page :home [_current-route db]
+  (re-frame/dispatch [:request-readme])
+  db)
 
 (defmethod pages :re-frame-state [_]
   (let [db (re-frame/subscribe [:db])]
