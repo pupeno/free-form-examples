@@ -1,4 +1,4 @@
-;;;; Copyright © 2015, 2016 José Pablo Fernández Silva, All rights reserved.
+;;;; Copyright © 2015-2017 José Pablo Fernández Silva
 
 (defproject free-form-examples "0.1.0-SNAPSHOT"
   :description "Examples of how to use the form library Free-form"

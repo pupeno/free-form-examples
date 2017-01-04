@@ -52,6 +52,6 @@ by using https://devcenter.heroku.com/articles/deploying-clojure-applications-wi
 
 ## License
 
-Copyright © 2015, 2016 José Pablo Fernández Silva, All rights reserved.
+Copyright © 2015-2017 José Pablo Fernández Silva
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.

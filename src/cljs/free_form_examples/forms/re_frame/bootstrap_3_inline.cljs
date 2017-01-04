@@ -1,4 +1,4 @@
-;;;; Copyright © 2015, 2016 José Pablo Fernández Silva, All rights reserved.
+;;;; Copyright © 2015-2017 José Pablo Fernández Silva
 
 (ns free-form-examples.forms.re-frame.bootstrap-3-inline
   (:require [reagent.ratom :as ratom :include-macros true]
