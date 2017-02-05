@@ -18,7 +18,7 @@
         (assoc-in (cons :re-frame-bootstrap-3-horizontal keys) value)
         (update :event-log #(conj % event)))))
 
-(defmethod layout/pages :re-frame-bootstrap-3-horizontal [_]
+(defn- view []
   (let [data (re-frame/subscribe [:re-frame-bootstrap-3-horizontal])]
     (fn []
       [:div
@@ -77,3 +77,6 @@
        [layout/controls :re-frame {:target :re-frame-bootstrap-3-horizontal}]
        [layout/state @data :re-frame-bootstrap-3-horizontal]
        [layout/event-log]])))
+
+(defmethod layout/pages :re-frame-bootstrap-3-horizontal [_]
+  [view])

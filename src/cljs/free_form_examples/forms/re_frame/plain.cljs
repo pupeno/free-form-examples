@@ -18,7 +18,7 @@
         (assoc-in (cons :re-frame-plain keys) value)
         (update :event-log #(conj % event)))))
 
-(defmethod layout/pages :re-frame-plain [_]
+(defn- view []
   (let [data (re-frame/subscribe [:re-frame-plain])]
     (fn []
       [:div
@@ -101,3 +101,6 @@
        [layout/controls :re-frame {:target :re-frame-plain}]
        [layout/state @data :re-frame-plain]
        [layout/event-log]])))
+
+(defmethod layout/pages :re-frame-plain [_]
+  [view])

@@ -19,7 +19,7 @@
         (assoc-in (cons :re-frame-bootstrap-3 keys) value)
         (update :event-log #(conj % event)))))
 
-(defmethod layout/pages :re-frame-bootstrap-3 [_]
+(defn- view []
   (let [data (re-frame/subscribe [:re-frame-bootstrap-3])]
     (fn []
       [:div
@@ -80,3 +80,6 @@
        [layout/controls :re-frame {:target :re-frame-bootstrap-3}]
        [layout/state @data :re-frame-bootstrap-3]
        [layout/event-log]])))
+
+(defmethod layout/pages :re-frame-bootstrap-3 [_]
+  [view])
