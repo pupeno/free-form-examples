@@ -5,7 +5,7 @@
             [free-form.core :as free-form]
             [free-form-examples.layout :as layout]))
 
-(defmethod layout/pages :reagent-plain [_]
+(defn- view []
   (let [data (reagent/atom {})]
     (fn [_]
       [:div
@@ -86,3 +86,6 @@
        [:h2 "Controls"]
        [layout/controls :reagent {:form-data data}]
        [layout/state @data]])))
+
+(defmethod layout/pages :reagent-plain [_]
+  [view])
