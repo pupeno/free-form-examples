@@ -205,7 +205,9 @@
                                                                  "select" "Select"
                                                                  "select-with-group" "Select with group"
                                                                  "textarea" "Text area"
-                                                                 "text-with-extra-validation-errors" "Text with extra validation errors"]}]
+                                                                 "text-with-extra-validation-errors" "Text with extra validation errors"
+                                                                 "checkbox" "Checkbox"
+                                                                 "radio-buttons" "Radio buttons"]}]
                                     [:free-form/field {:type        :text
                                                        :key         :message
                                                        :label       "Message"

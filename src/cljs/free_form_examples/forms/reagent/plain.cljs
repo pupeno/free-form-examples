@@ -82,6 +82,32 @@
                    :id              :text-with-extra-validation-errors
                    :placeholder     "This will be marked as a validation error also when Text and General have validation errors."}]
           [:div.errors {:free-form/error-message {:key :text-with-extra-validation-errors}} [:p.error]]]
+         [:div {:free-form/error-class {:key :checkbox :error "validation-errors"}}
+          [:input {:free-form/input {:key :checkbox}
+                   :type            :checkbox
+                   :id              :checkbox}]
+          [:label {:for :checkbox} "Checkbox"]
+          [:div.errors {:free-form/error-message {:key :checkbox}} [:p.error]]]
+         [:div.plain-field {:free-form/error-class {:key :radio-buttons :error "validation-errors"}}
+          [:label
+           [:input {:free-form/input {:key :radio-buttons}
+                    :type            :radio
+                    :name            :radio-buttons
+                    :value           "radio-option-1"}]
+           "Radio Option 1"]
+          [:label
+           [:input {:free-form/input {:key :radio-buttons}
+                    :type            :radio
+                    :name            :radio-buttons
+                    :value           "radio-option-2"}]
+           "Radio Option 2"]
+          [:label
+           [:input {:free-form/input {:key :radio-buttons}
+                    :type            :radio
+                    :name            :radio-buttons
+                    :value           "radio-option-3"}]
+           "Radio Option 3"]
+          [:div.errors {:free-form/error-message {:key :radio-buttons}} [:p.error]]]
          [:button "Button"]]]
        [:h2 "Controls"]
        [layout/controls :reagent {:form-data data}]
