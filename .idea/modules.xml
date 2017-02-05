@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../free-form/free-form.iml" filepath="$PROJECT_DIR$/../free-form/free-form.iml" />
       <module fileurl="file://$PROJECT_DIR$/free-form-examples.iml" filepath="$PROJECT_DIR$/free-form-examples.iml" />
     </modules>
   </component>
