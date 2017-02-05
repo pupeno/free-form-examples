@@ -31,7 +31,7 @@
         [:a {:href (routing/url-for :re-frame-bootstrap-3-inline)} "Bootsrap inline"]
         " versions of this form."]
        [free-form/form @data (:-errors @data) :update-re-frame-bootstrap-3 :bootstrap-3
-        [:form {:noValidate        true}
+        [:form {:noValidate true}
          [:div.col-sm-offset-2.col-sm-10 {:free-form/error-message {:key :-general}} [:p.text-danger]]
          [:free-form/field {:type        :text
                             :key         :text
@@ -75,6 +75,16 @@
                             :extra-validation-error-keys [[:text] [:-general]]
                             :label                       "Text with extra validation errors"
                             :placeholder                 "This will be marked as a validation error also when Text and General have validation errors."}]
+         [:free-form/field {:type  :checkbox
+                            :key   :checkbox
+                            :label "Checkbox"}]
+         [:free-form/field {:type    :radio
+                            :label   "Radio buttons"
+                            :key     :radio-buttons
+                            :options [:dog "Dog"
+                                      :cat "Cat"
+                                      :squirrel "Squirrel"
+                                      :giraffe "Giraffe"]}]
          [:button.btn.btn-primary {:type :submit} "Button"]]]
        [:h2 "Controls"]
        [layout/controls :re-frame {:target :re-frame-bootstrap-3}]

@@ -55,6 +55,16 @@
                             :extra-validation-error-keys [[:text] [:-general]]
                             :label                       "Text with extra validation errors"
                             :placeholder                 "This will be marked as a validation error also when Text and General have validation errors."}] " "
+         [:free-form/field {:type  :checkbox
+                            :key   :checkbox
+                            :label "Checkbox"}] " "
+         [:free-form/field {:type    :radio
+                            :label   "Radio buttons"
+                            :key     :radio-buttons
+                            :options [:dog "Dog"
+                                      :cat "Cat"
+                                      :squirrel "Squirrel"
+                                      :giraffe "Giraffe"]}]
          [:button.btn.btn-primary {:type :submit} "Button"]]]
        [:h2 "Controls"]
        [layout/controls :reagent {:form-data data}]
