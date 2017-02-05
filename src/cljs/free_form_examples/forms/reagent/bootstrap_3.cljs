@@ -8,7 +8,7 @@
 (defn- view []
   (let [data (reagent/atom {})]
     (fn []
-      [:div
+      [:div.bootstrap-3
        [layout/source-code-button "reagent/bootstrap_3.cljs"]
        [:h1 "Reagent Bootstrap 3"]
        [free-form/form @data (:-errors @data) (fn [keys value] (swap! data #(assoc-in % keys value))) :bootstrap-3

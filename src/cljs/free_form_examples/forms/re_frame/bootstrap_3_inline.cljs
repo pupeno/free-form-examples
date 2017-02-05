@@ -21,7 +21,7 @@
 (defn- view []
   (let [data (re-frame/subscribe [:re-frame-bootstrap-3-inline])]
     (fn []
-      [:div
+      [:div.bootstrap-3
        [layout/source-code-button "re_frame/bootstrap_3_inline.cljs"]
        [:h1 "Re-frame Bootstrap 3 Inline"]
        [free-form/form @data (:-errors @data) :update-re-frame-bootstrap-3-inline :bootstrap-3

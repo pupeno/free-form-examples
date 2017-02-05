@@ -21,7 +21,7 @@
 (defn- view []
   (let [data (re-frame/subscribe [:re-frame-bootstrap-3-horizontal])]
     (fn []
-      [:div
+      [:div.bootstrap-3
        [layout/source-code-button "re_frame/bootstrap_3_horizontal.cljs"]
        [:h1 "Re-frame Bootstrap 3 Horizontal"]
        [free-form/form @data (:-errors @data) :update-re-frame-bootstrap-3-horizontal :bootstrap-3

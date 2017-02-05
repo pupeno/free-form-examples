@@ -22,7 +22,7 @@
 (defn- view []
   (let [data (re-frame/subscribe [:re-frame-bootstrap-3])]
     (fn []
-      [:div
+      [:div.bootstrap-3
        [layout/source-code-button "re_frame/bootstrap_3.cljs"]
        [:h1 "Re-frame Bootstrap 3"]
        [:p "You might also want to check out the "
