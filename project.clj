@@ -27,7 +27,7 @@
   :source-paths ["src/clj"]
 
   :plugins [[lein-cljsbuild "1.1.3"]
-            [lein-figwheel "0.5.4-7"]
+            ; [lein-figwheel "0.5.4-7"]
             [lein-ring "0.9.7"]
             [lein-environ "1.1.0"]
             [lein-heroku "0.5.3"]]
@@ -54,7 +54,8 @@
 
   :heroku {:app-name "free-form-examples"}
 
-  :profiles {:production {:env {:production "true"}}
+  :profiles {:dev        {:dependencies [[figwheel-sidecar "0.5.0"]]}
+             :production {:env {:production "true"}}
              :uberjar    {:omit-source true
                           :aot         :all
                           :env         {:production "true"}

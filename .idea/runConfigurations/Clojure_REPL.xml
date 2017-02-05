@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Clojure REPL" type="ClojureREPL" factoryName="Local" singleton="true">
+    <setting name="replType" value="1" />
+    <module name="free-form-examples" />
+    <setting name="jvmArgs" value="" />
+    <setting name="parameters" value="" />
+    <setting name="workingDir" value="$PROJECT_DIR$" />
+    <setting name="profiles" value="" />
+    <method />
+  </configuration>
+</component>
