@@ -1,65 +1,70 @@
-/* Copyright © 2015-2017 José Pablo Fernández Silva */
+// Copyright © 2015-2017 José Pablo Fernández Silva
 
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
-    padding-top: 50px; /* For the top nav bar */
-    margin-bottom: 70px; /* Margin bottom by footer height */
+  padding-top: 50px; /* For the top nav bar */
+  margin-bottom: 70px; /* Margin bottom by footer height */
 }
 
 footer.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px; /* Set the fixed height of the footer here */
-    background-color: #f5f5f5;
-}
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  background-color: #f5f5f5;
 
-footer.footer .container {
+  .container {
     width: auto;
     text-align: right;
-}
 
-footer.footer .container .text-muted {
-    margin: 20px 0;
+    .text-muted {
+      margin: 20px 0;
+    }
+  }
 }
 
 /*****************************************************************************/
 /* Plain forms                                                               */
-div.plain-form .plain-field {
+div.plain-form {
+  .plain-field {
     margin-bottom: 10px;
-}
 
-div.plain-form .plain-field label {
-    display: block;
-}
+    &.validation-errors {
+      color: red;
 
-div.plain-form div.plain-field.validation-errors,
-div.plain-form div.errors p.error {
+      input, select, textarea {
+        color: red;
+      }
+    }
+
+    label {
+      display: block;
+    }
+  }
+
+  div.errors p.error {
     color: red;
-}
-
-div.plain-form div.plain-field.validation-errors input,
-div.plain-form div.plain-field.validation-errors select,
-div.plain-form div.plain-field.validation-errors textarea {
-    color: red;
+  }
 }
 
 /*****************************************************************************/
 /* Bootstrap 3 forms                                                         */
 
-div.bootstrap-3 div.field.validation-errors,
-div.bootstrap-3 div.errors p.error {
+div.bootstrap-3 {
+  div.errors p.error {
     color: red;
-}
+  }
 
-div.bootstrap-3 div.field.validation-errors input,
-div.bootstrap-3 div.field.validation-errors select,
-div.bootstrap-3 div.field.validation-errors textarea {
-    border-color: red;
+  div.field.validation-errors {
     color: red;
-}
 
+    input, select, textarea {
+      border-color: red;
+      color: red;
+    }
+  }
+}
