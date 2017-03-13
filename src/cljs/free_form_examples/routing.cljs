@@ -8,14 +8,14 @@
             [pushy.core :as pushy]))
 
 (def routes (silk/routes [[:home [[]]]
-                          [:reagent-plain [["reagent" "plain"]]]
                           [:reagent-bootstrap-3 [["reagent" "bootstrap-3"]]]
                           [:reagent-bootstrap-3-horizontal [["reagent" "bootstrap-3" "horizontal"]]]
                           [:reagent-bootstrap-3-inline [["reagent" "bootstrap-3" "inline"]]]
-                          [:re-frame-plain [["re-frame" "plain"]]]
+                          [:reagent-plain [["reagent" "plain"]]]
                           [:re-frame-bootstrap-3 [["re-frame" "bootstrap-3"]]]
                           [:re-frame-bootstrap-3-horizontal [["re-frame" "bootstrap-3" "horizontal"]]]
                           [:re-frame-bootstrap-3-inline [["re-frame" "bootstrap-3" "inline"]]]
+                          [:re-frame-plain [["re-frame" "plain"]]]
                           [:re-frame-state [["re-frame" "state"]]]]))
 
 (defn sanitize-silk-keywords [matched-route]
