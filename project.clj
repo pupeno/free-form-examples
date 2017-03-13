@@ -12,7 +12,7 @@
                              :compiler     {:main          free-form-examples.core
                                             :output-to     "resources/public/js/app.js"
                                             :output-dir    "resources/public/js"
-                                            :asset-path    "js"
+                                            :asset-path    "/js"
                                             :optimizations :none}}}}
 
   :sass {:source-paths ["resources/styles"]
