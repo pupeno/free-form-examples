@@ -70,6 +70,7 @@
           [:div.col-sm-offset-2.col-sm-5
            [:button.btn.btn-primary {:type :submit}
             "Button"]]]]]
+       [:hr]
        [:h2 "Controls"]
        [layout/controls :reagent {:form-data data}]
        [layout/state @data]])))

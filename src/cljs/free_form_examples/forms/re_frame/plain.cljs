@@ -122,6 +122,7 @@
            "Radio Option 3"]
           [:div.errors {:free-form/error-message {:key :radio-buttons}} [:p.error]]]
          [:button "Button"]]]
+       [:hr]
        [:h2 "Controls"]
        [layout/controls :re-frame {:target :re-frame-plain}]
        [layout/state @data :re-frame-plain]

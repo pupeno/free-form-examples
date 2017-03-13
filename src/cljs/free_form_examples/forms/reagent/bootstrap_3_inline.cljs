@@ -66,6 +66,7 @@
                                       :squirrel "Squirrel"
                                       :giraffe "Giraffe"]}]
          [:button.btn.btn-primary {:type :submit} "Button"]]]
+       [:hr]
        [:h2 "Controls"]
        [layout/controls :reagent {:form-data data}]
        [layout/state @data]])))

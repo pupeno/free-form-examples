@@ -86,6 +86,7 @@
                                       :squirrel "Squirrel"
                                       :giraffe "Giraffe"]}]
          [:button.btn.btn-primary {:type :submit} "Button"]]]
+       [:hr]
        [:h2 "Controls"]
        [layout/controls :re-frame {:target :re-frame-bootstrap-3}]
        [layout/state @data :re-frame-bootstrap-3]

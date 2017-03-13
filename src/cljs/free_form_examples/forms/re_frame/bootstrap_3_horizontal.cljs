@@ -83,6 +83,7 @@
           [:div.col-sm-offset-2.col-sm-5
            [:button.btn.btn-primary {:type :submit}
             "Button"]]]]]
+       [:hr]
        [:h2 "Controls"]
        [layout/controls :re-frame {:target :re-frame-bootstrap-3-horizontal}]
        [layout/state @data :re-frame-bootstrap-3-horizontal]
