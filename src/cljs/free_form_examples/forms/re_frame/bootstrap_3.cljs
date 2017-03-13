@@ -4,6 +4,7 @@
   (:require [reagent.ratom :as ratom :include-macros true]
             [re-frame.core :as re-frame]
             [free-form.re-frame :as free-form]
+            free-form.bootstrap-3
             [free-form-examples.layout :as layout]
             [free-form-examples.routing :as routing]))
 

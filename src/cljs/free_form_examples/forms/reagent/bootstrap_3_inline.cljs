@@ -3,6 +3,7 @@
 (ns free-form-examples.forms.reagent.bootstrap-3-inline
   (:require [reagent.core :as reagent]
             [free-form.core :as free-form]
+            free-form.bootstrap-3
             [free-form-examples.layout :as layout]))
 
 (defn- view []
