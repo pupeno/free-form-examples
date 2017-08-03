@@ -1,15 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="lein figwheel" type="LeiningenRunConfiguration" factoryName="Leiningen" singleton="true">
-    <LeiningenRunnerParameters>
-      <option name="myGoals">
-        <list>
-          <option value="figwheel" />
-        </list>
-      </option>
-      <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
-      <option name="profiles" value="" />
-      <option name="trampoline" value="false" />
-    </LeiningenRunnerParameters>
+    <module name="free-form-examples" />
+    <arguments argument="figwheel" />
+    <setting name="profiles" value="" />
+    <setting name="trampoline" value="false" />
     <method />
   </configuration>
 </component>
