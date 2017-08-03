@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="lein sass4clj auto" type="LeiningenRunConfiguration" factoryName="Leiningen" singleton="true">
+    <module name="free-form" />
+    <arguments argument="sass4clj" />
+    <arguments argument="auto" />
+    <setting name="profiles" value="" />
+    <setting name="trampoline" value="false" />
+    <method />
+  </configuration>
+</component>

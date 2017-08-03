@@ -10,10 +10,12 @@
             free-form-examples.forms.reagent.bootstrap-3
             free-form-examples.forms.reagent.bootstrap-3-horizontal
             free-form-examples.forms.reagent.bootstrap-3-inline
+            free-form-examples.forms.reagent.reagent-toolbox
             free-form-examples.forms.reagent.plain
             free-form-examples.forms.re-frame.bootstrap-3
             free-form-examples.forms.re-frame.bootstrap-3-horizontal
             free-form-examples.forms.re-frame.bootstrap-3-inline
+            free-form-examples.forms.re-frame.reagent-toolbox
             free-form-examples.forms.re-frame.plain))
 
 (defn mount-root []

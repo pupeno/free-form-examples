@@ -11,10 +11,12 @@
                           [:reagent-bootstrap-3 [["reagent" "bootstrap-3"]]]
                           [:reagent-bootstrap-3-horizontal [["reagent" "bootstrap-3" "horizontal"]]]
                           [:reagent-bootstrap-3-inline [["reagent" "bootstrap-3" "inline"]]]
+                          [:reagent-reagent-toolbox [["reagent" "reagent-toolbox"]]]
                           [:reagent-plain [["reagent" "plain"]]]
                           [:re-frame-bootstrap-3 [["re-frame" "bootstrap-3"]]]
                           [:re-frame-bootstrap-3-horizontal [["re-frame" "bootstrap-3" "horizontal"]]]
                           [:re-frame-bootstrap-3-inline [["re-frame" "bootstrap-3" "inline"]]]
+                          [:re-frame-reagent-toolbox [["re-frame" "reagent-toolbox"]]]
                           [:re-frame-plain [["re-frame" "plain"]]]
                           [:re-frame-state [["re-frame" "state"]]]]))
 

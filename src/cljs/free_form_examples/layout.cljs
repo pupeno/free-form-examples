@@ -46,6 +46,7 @@
             [:li [:a {:href (routing/url-for :reagent-bootstrap-3)} "Bootstrap 3"]]
             [:li [:a {:href (routing/url-for :reagent-bootstrap-3-horizontal)} "Bootstrap 3 Horizontal"]]
             [:li [:a {:href (routing/url-for :reagent-bootstrap-3-inline)} "Bootstrap 3 Inline"]]
+            [:li [:a {:href (routing/url-for :reagent-reagent-toolbox)} "Reagent Toolbox"]]
             [:li [:a {:href (routing/url-for :reagent-plain)} "Plain"]]]]
           [:li.dropdown
            [:a.dropdown-toggle {:href "#" :data-toggle "dropdown" :role "button" :aria-haspopup true :aria-expanded false}
@@ -55,13 +56,20 @@
             [:li [:a {:href (routing/url-for :re-frame-bootstrap-3-horizontal)} "Bootstrap 3 Horizontal"]]
             [:li [:a {:href (routing/url-for :re-frame-bootstrap-3-inline)} "Bootstrap 3 Inline"]]
             [:li [:a {:href (routing/url-for :re-frame-plain)} "Plain"]]
+            [:li [:a {:href (routing/url-for :re-frame-reagent-toolbox)} "Reagent Toolbox"]]
             [:li [:a {:href (routing/url-for :re-frame-state)} "State"]]]]
           [:li.dropdown
            [:a.dropdown-toggle {:href "#" :data-toggle "dropdown" :role "button" :aria-haspopup true :aria-expanded false}
             "Bootstrap 3" [:span.caret]]
            [:ul.dropdown-menu
             [:li [:a {:href (routing/url-for :reagent-bootstrap-3)} "On Reagent"]]
-            [:li [:a {:href (routing/url-for :re-frame-bootstrap-3)} "On re-frame"]]]]]
+            [:li [:a {:href (routing/url-for :re-frame-bootstrap-3)} "On re-frame"]]]]
+          [:li.dropdown
+           [:a.dropdown-toggle {:href "#" :data-toggle "dropdown" :role "button" :aria-haspopup true :aria-expanded false}
+            "Reagent Toolbox" [:span.caret]]
+           [:ul.dropdown-menu
+            [:li [:a {:href (routing/url-for :reagent-reagent-toolbox)} "On Reagent"]]
+            [:li [:a {:href (routing/url-for :re-frame-reagent-toolbox)} "On re-frame"]]]]]
          [:ul.nav.navbar-nav.navbar-right
           [:li
            [:a {:href "https://github.com/pupeno/free-form"} "Free Form " [:i.fa.fa-external-link]]]]]]])))

@@ -64,17 +64,15 @@
                  [ring/ring-jetty-adapter "1.5.1"]
                  [environ "1.1.0"]
                  [cheshire "5.7.0"]                         ; Required by sass4clj
-                 ;[cljsjs/react-with-addons "15.4.2-2"]
-                 ;[cljsjs/react-dom "15.4.2-2"]
-                 [reagent "0.6.0"]
+                 [cljsjs/react-with-addons "15.4.2-2"]
+                 [reagent "0.6.1" :exclusions [cljsjs/react]]
                  [re-frame "0.8.0"]
                  [com.domkm/silk "0.1.2"]
                  [kibu/pushy "0.3.6"]
                  [cljs-ajax "0.5.8"]
-                 ;[tech.dashman/reagent-toolbox "0.1.0-SNAPSHOT"]
-                 [com.pupeno/free-form "0.6.0-SNAPSHOT"]
-
-                 ]
+                 [camel-snake-kebab "0.4.0"]
+                 [tech.dashman/reagent-toolbox "0.1.0-SNAPSHOT"]
+                 [com.pupeno/free-form "0.6.0-SNAPSHOT"]]
 
   :plugins [[lein-cljsbuild "1.1.4"]
             ;[lein-figwheel "0.5.9"]
